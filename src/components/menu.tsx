@@ -24,6 +24,8 @@ import { FaUserCircle } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
+import logo from "../../public/logo.png"
 
 const menuItems = [
   {
@@ -56,7 +58,7 @@ const menuItems = [
       },
       {
         icon: <MdClass />,
-        label: "lessons",
+        label: "Lessons",
         href: "/lessons",
       },
       {
@@ -91,7 +93,7 @@ const menuItems = [
       },
       {
         icon: <IoIosMegaphone />,
-        label: "Announcements",
+        label: "Announce",
         href: "/announcements",
       },
     ],
@@ -120,7 +122,7 @@ const Menu = () => {
 
   return (
     <div
-      className="w-full h-full align-middle text-xs text-text text-center transition ease-in-out duration-300"
+      className="w-full h-full align-middle text-xs text-text text-center"
       onMouseOver={() => {
         setSideBar(true);
       }}
@@ -128,15 +130,17 @@ const Menu = () => {
         setSideBar(false);
       }}
     >
-      <Link href="/" className="flex items-center justify-center">
-        <span className="text-xl font-bold p-4 text-primary">Albis</span>
+      <Link href="/" className="flex items-center justify-center gap-1 h-15 py-2">
+        <Image src={logo} alt="" width={30} height={30} />
+        <span className={(sideBar ? "hidden lg:block text-lg font-bold text-primary" : "hidden") + " transition-all ease-in-out duration-200 text-left leading-tight"}>
+          <p>Albis</p>
+          <p className="text-[5px]">(Al Banna Integrated System)</p>
+        </span>
       </Link>
-      <div
-        className=""
-      >
+      <div className="">
         {menuItems.map((i) => (
           <div className="" key={i.title}>
-            <span className="hidden md:block text-xs font-base text-center mb-1 tracking-widest text-placeholder">
+            <span className="hidden md:block text-xs font-base text-center py-1 tracking-widest text-placeholder">
               {i.title}
             </span>
             {i.items.map((item) => (
@@ -144,18 +148,26 @@ const Menu = () => {
                 href={item.href}
                 key={item.label}
                 className={
-                  ((sideBar
+                  (sideBar
                     ? ` lg:justify-start items-center h-8 `
-                    : " justify-center items-center h-8 ") + " text-xs xl:text-xs flex justify-center lg:gap-6 text-center py-2 xl:px-2 ") +
+                    : " justify-center items-center h-8 ") +
+                  " text-xs xl:text-xs flex justify-center lg:gap-4 text-center py-2 xl:px-2 transition-all ease-in-out duration-200 " +
                   (pathname === item.href
                     ? "text-purple-800 bg-third border-r-3 border-purple-800"
-                    : "hover:bg-[#f2e8f591]")
+                    : "hover:bg-[#f2e8f591] transition-[hover] ease-in-out duration-75")
                 }
               >
-                <span className="text-lg md:text-lg lg:text-sm xl:text-[15px] text-center">
+                <span
+                  className={
+                    (sideBar ? "px-[0.689rem] " : "") +
+                    "text-lg md:text-lg lg:text-xs xl:text-[15px] text-center"
+                  }
+                >
                   {item.icon}
                 </span>
-                <span className={sideBar ? "hidden lg:block lg:text-sm" : "hidden"}>
+                <span
+                  className={sideBar ? "hidden lg:block lg:text-xs" : "hidden"}
+                >
                   {item.label}
                 </span>
               </Link>

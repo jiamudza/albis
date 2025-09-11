@@ -31,7 +31,7 @@ const Navbar = () => {
             className="h-8 w-8 rounded-full object-fill bg-amber-300"
           />
           <div>
-            <p className="text-sm font-medium text-text">Ajimas Bagus K.</p>
+            <p className="text-sm font-medium text-text text-nowrap">Ajimas Bagus K.</p>
             <p className="text-xs text-gray-500">Admin</p>
           </div>
             <div

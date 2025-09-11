@@ -9,11 +9,6 @@ const Search = () => {
         borderBottom: "3px solid #B7A5DB", // membuat bagian bawah lebih solid
       }}
     >
-      <input
-        type="text"
-        placeholder="Search..."
-        className="w-full  text-button-bg border-none bg-transparent px-3 placeholder-gray-400 outline-none"
-      />
       <button
         type="button"
         className="hover:bg-accent bg-primary cursor-pointer rounded-full p-2 text-white duration-100 ease-in-out focus:scale-95 focus:outline-none"
@@ -21,6 +16,11 @@ const Search = () => {
       >
         <IoSearch size={12} />
       </button>
+      <input
+        type="text"
+        placeholder="Search..."
+        className="w-full  text-button-bg border-none bg-transparent px-2 placeholder-gray-400 outline-none"
+      />
     </div>
   );
 };
