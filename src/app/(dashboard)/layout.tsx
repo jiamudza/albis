@@ -9,7 +9,7 @@ const DashboardLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-y">
       {/* LEFT */}
       <div className="w-14 md:hover:w-14 lg:hover:w-[18%] xl:hover:w-[18%] border-r-[1px] border-slate-200 transition-all ease-in-out duration-200">
         <Menu />

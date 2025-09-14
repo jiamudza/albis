@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
+
+@layer utilities {
+    .text-outline {
+        -webkit-text-stroke: 1.5px #6B4BAC;
+    }
+}
+
 @theme {
     --color-secondary: #9E6FD5;
     --color-third: #C7B7EB;
@@ -18,3 +25,31 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+/* Scrollbar untuk Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 2px;       /* lebar scrollbar */
+  height: 2px;      /* tinggi scrollbar (untuk horizontal) */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;  /* warna track */
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;      /* warna tombol scroll */
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fcfaf0;      /* warna saat hover */
+}
+
+/* Scrollbar untuk Firefox */
+* {
+  scrollbar-width: 1px;              /* auto | thin | none */
+  scrollbar-color: #888 transparent;      /* thumb | track */
+}
+
+
