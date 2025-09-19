@@ -13,6 +13,8 @@ export interface Teacher {
     classes?: string[]; // course codes or class names
 }
 
+export const role: string = "teacher"
+
 export const teachers: Teacher[] = [
     {
         id: "tch-001",

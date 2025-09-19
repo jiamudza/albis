@@ -49,7 +49,7 @@ const menuItems = [
       {
         icon: <HiUser />,
         label: "Teachers",
-        href: "/teachers",
+        href: "/list/teachers",
       },
       {
         icon: <HiUserGroup />,
