@@ -44,7 +44,7 @@ const menuItems = [
       {
         icon: <RiHome5Fill />,
         label: "Home",
-        href: "/",
+        href: "/admin",
       },
       {
         icon: <HiUser />,
@@ -54,12 +54,12 @@ const menuItems = [
       {
         icon: <HiUserGroup />,
         label: "Students",
-        href: "/students",
+        href: "/list/students",
       },
       {
         icon: <FaPeopleRoof />,
         label: "Parents",
-        href: "/parents",
+        href: "/list/parents",
       },
       {
         icon: <MdMeetingRoom />,

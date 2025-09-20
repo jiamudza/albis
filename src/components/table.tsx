@@ -1,29 +1,19 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-type tableHeader = {
-    name: string;
-    key: string;
-    class? : string;
-}
+const TableList = ({ columns, renderRow, data }: { columns: { key: string; label: string; className?: string }[], renderRow: (item: any) => React.ReactNode, data: any[] }) => {
 
-type tableProps = {
-    tableHead: tableHeader[];
-    tableData: () => React.JSX.Element[];
-}
-
-const TableList = ({tableHead, tableData}: tableProps) => {
   return (
-    <div className=' bg-white max-h-[60vh] rounded-2xl p-3 cursor-default overflow-auto'>
+    <div className=' bg-white rounded-2xl px-3 cursor-default h-[65vh] overflow-auto border-b-3 border-third'>
       <table className='w-full rounded-2xl'>
-        <thead className=''>
-            <tr className='text-left'>
-                {tableHead && tableHead.map(i => (
-                    <th key={i.key} className={i.class ? i.class : ""}>{i.name}</th>
-                ))}
-            </tr>
+        <thead className='sticky top-0 bg-white'>
+          <tr className='text-left text-xs'>
+            {columns.map(col => (
+              <th key={col.key} className={`${col.className} py-2`}>{col.label}</th>
+            ))}
+          </tr>
         </thead>
-        <tbody className='overflow-y-auto'>
-            {tableData()}
+        <tbody className='px-4'>
+          {data.map((item) => (renderRow(item)))}
         </tbody>
       </table>
     </div>
