@@ -9,13 +9,13 @@ const DashboardLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="flex w-full h-screen overflow-y fixed top-0">
+    <div className="flex w-full h-screen fixed top-0">
       {/* LEFT */}
       <div className="w-14 md:hover:w-14 lg:hover:w-[18%] xl:hover:w-[18%] border-r-[1px] border-slate-200 transition-all ease-in-out duration-200">
         <Menu />
       </div>
       {/* RIGHT */}
-      <div className="w-full bg-background transition-all ease-in-out duration-200">
+      <div className="w-full relative bg-background overflow-auto transition-all ease-in-out duration-200">
         <Navbar />
         {children}
       </div>

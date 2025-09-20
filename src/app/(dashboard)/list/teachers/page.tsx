@@ -1,53 +1,54 @@
 import TableList from "@/components/table";
 import React from "react";
-import teachers, { role, Teacher } from "@/lib/data";
+import { role, Teacher, teachers } from "@/lib/data";
 import Link from "next/link";
 import Search from "@/components/search-bar";
 import Image from "next/image";
 import Pagination from "@/components/pagination";
-import { VscSettings, VscAdd } from "react-icons/vsc";
-import { MdOutlineAdd } from "react-icons/md";
+import { VscSettings } from "react-icons/vsc";
+import { MdOutlineAdd, MdOutlineDelete } from "react-icons/md";
+import { TbListDetails } from "react-icons/tb";
 
 const columns = [
   {
     key: "name",
-    label: "Teacher Name",
-    className: 'py-2'
+    label: "Guru",
+    className: "pl-4"
   },
   {
     key: "id",
-    label: "Teacher ID"
+    label: "ID Guru",
   },
   {
     key: "subjects",
-    label: "Subjects",
+    label: "Mata Pelajaran",
     className: "hidden md:table-cell"
   },
   {
     key: "classes",
-    label: "Classes",
+    label: "Jenjang Kelas",
     className: "hidden md:table-cell"
   },
   {
     key: "phone",
-    label: "Phone",
+    label: "Telepon",
     className: "hidden md:table-cell"
   },
   {
     key: "action",
-    label: "Action"
+    label: "Lainnya",
   }
 ]
 
 const TeacherPage = () => {
 
   const renderRow = (item: Teacher) => (
-    <tr key={item.id} className="text-xs border-b border-slate-200 even:bg-slate-50 hover:bg-third hover:text-white px-20">
-      <td className="flex items-center gap-2 p-2">
+    <tr key={item.id} className="text-xs border-b border-slate-200 odd:bg-slate-50 hover:bg-[#4b096e65] hover:text-white px-20">
+      <td className="w-auto flex items-center gap-2 p-2">
         <Image src={item.avatarUrl ? item.avatarUrl : "https://avatar.iran.liara.run/public"} alt="" width={30} height={25} className="rounded-full object-cover " />
         <div className="flex flex-col">
-          <span>{`${item.firstName} ${item.lastName}`}</span>
-          <span className="text-xs">{item.email}</span>
+          <span className="font-semibold">{`${item.firstName} ${item.lastName}`}</span>
+          <span className="hidden md:block text-xs text-text">{item.email}</span>
         </div>
       </td>
       <td>
@@ -56,34 +57,32 @@ const TeacherPage = () => {
       <td className="hidden md:table-cell">{item.subjects.join(", ")}</td>
       <td className="hidden md:table-cell">{item.classes?.join(", ")}</td>
       <td className="hidden md:table-cell">{item.phone}</td>
-      <td className="flex justify-items-center items-center gap-2">
-        <div className="flex justify-baseline items-center h-5 gap-2 my-auto -mt-4" >
-          <Link href={`/list/teachers/${item.id}`} className="bg-accent text-white p-1 rounded-md align-middle
-        ">
-            <div className="flex justify-center items-center align-middle">detail</div>
-          </Link>
-          {role === "teacher" && <span className="bg-red-300 text-white p-1 rounded-md flex flex-col justify-center items-center">delete</span>}
+      <td className="">
+        <div className="flex items-center gap-3">
+          <Link href={`/list/teacher/${item.id}`} className="bg-accent rounded-full"><TbListDetails size={22} className="bg-accent p-1 rounded-full text-white"/></Link>
+          {role === "admin" && <div className="cursor-pointer"><MdOutlineDelete size={22} className="bg-red-400 p-1 rounded-full text-white" /></div>}
         </div>
       </td>
     </tr>
   )
 
   return (
-    <div className="p-3 w-full h-full overflow-auto">
-      <h3 className="font-semibold text-xl text-primary mb-3">Teachers</h3>
-      <div className="w-full mb-3 block md:flex justify-between">
-        <div className="w-80">
-          <Search />
+    <div className="px-3 py-2 overflow-x-hidden min-h-screen">
+      <h3 className="font-bold text-lg text-primary mb-1">Data Guru</h3>
+      <div className="border rounded-md border-slate-300">
+        <div className="w-full flex justify-between items-center bg-transparent">
+          <div className="w-80 px-3">
+            <Search />
+          </div>
+          <div className="flex justify-end items-center py-3 gap-3 px-2 md:px-5 ">
+            <span className="flex items-center justify-center md:justify-end gap-2 rounded-full bg-primary font-bold py-2 px-2 md:rounded-md text-white cursor-pointer"><VscSettings /></span>
+            {role === "admin" && <div className="flex items-center justify-center md:justify-end gap-2 rounded-full bg-primary font-bold py-2 px-2 md:rounded-md text-white cursor-pointer">
+              <span><MdOutlineAdd /></span>
+              <p className="hidden md:block text-xs">Tambah Guru</p>
+            </div>}
+          </div>
         </div>
-        <div className="flex justify-end items-center gap-3 px-10 ">
-          <span className="h-8 w-8 text-white bg-primary rounded-full flex items-center justify-center"><VscSettings size={23} /></span>
-          {role === "admin" && <div className="flex items-center gap-2 bg-primary font-bold py-2 px-2 rounded-md text-white cursor-pointer">
-            <span><MdOutlineAdd /></span>
-            <p className="text-xs">Tambah Siswa</p>
-          </div>}
-        </div>
-      </div>
-      <TableList columns={columns} renderRow={renderRow} data={teachers} />
+        <TableList key="teacher" columns={columns} renderRow={renderRow} data={teachers} /></div>
       <div>
         <Pagination />
       </div>

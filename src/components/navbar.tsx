@@ -32,7 +32,7 @@ const Navbar = ({ timezone = Intl.DateTimeFormat().resolvedOptions().timeZone })
   const dateOptions: Intl.DateTimeFormatOptions = {
     weekday: 'long',
     year: 'numeric',
-    month: 'long',
+    month: 'numeric',
     day: 'numeric',
     timeZone: timezone,
   }
@@ -41,17 +41,17 @@ const Navbar = ({ timezone = Intl.DateTimeFormat().resolvedOptions().timeZone })
   const timeString = new Intl.DateTimeFormat("id-ID", timeOptions).format(now)
   const dateString = new Intl.DateTimeFormat("id-ID", dateOptions).format(now)
   return (
-    <div className="flex items-center justify-between border-b border-gray-200 py-2 px-5 bg-white">
+    <div className="flex items-center justify-between border-b border-gray-200 py-2 px-5 bg-white sticky top-0 box-border">
       {/* Search Bar */}
       {/* <Search /> */}
       <div className="">
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <div className="text-xs text-slate-500 dark:text-slate-300">Zona: <span className="font-medium">{timezone}</span></div>
         </div>
 
 
-        <div className="flex items-baseline gap-4">
-          <div className="font-mono font-bold text-slate-900 dark:text-white tracking-tight">{timeString}</div>
+        <div className="flex flex-col lg:flex-row items-baseline justify-start gap-0 lg:gap-4">
+          <div className="font-mono font-bold text-slate-900 tracking-tight">{timeString}</div>
           <div className="flex flex-col text-xs md:text-sm text-slate-500 dark:text-slate-300">
             {/* <button
               className="mb-2 px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition"
@@ -64,7 +64,7 @@ const Navbar = ({ timezone = Intl.DateTimeFormat().resolvedOptions().timeZone })
         </div>
 
       </div>
-      <div className="flex items-center justify-end gap-8 w-full md:w-1/2">
+      <div className="flex items-center justify-end gap-3 lg:gap-8 w-full md:w-1/2">
         {/* Notification */}
         <div className="text-primary flex items-center gap-2 text-2xl">
           <span>
@@ -81,7 +81,7 @@ const Navbar = ({ timezone = Intl.DateTimeFormat().resolvedOptions().timeZone })
             alt="avatar"
             className="h-8 w-8 rounded-full object-fill bg-amber-300"
           />
-          <div>
+          <div className="hidden md:block">
             <p className="text-xs lg:text-sm font-medium text-text text-nowrap">Ajimas Bagus K.</p>
             <p className="text-xs text-gray-500">Admin</p>
           </div>

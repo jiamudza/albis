@@ -43,67 +43,67 @@ const menuItems = [
     items: [
       {
         icon: <RiHome5Fill />,
-        label: "Home",
+        label: "Dashboard",
         href: "/admin",
       },
       {
         icon: <HiUser />,
-        label: "Teachers",
+        label: "Guru",
         href: "/list/teachers",
       },
       {
         icon: <HiUserGroup />,
-        label: "Students",
+        label: "Siswa",
         href: "/list/students",
       },
       {
         icon: <FaPeopleRoof />,
-        label: "Parents",
+        label: "Wali",
         href: "/list/parents",
       },
       {
         icon: <MdMeetingRoom />,
-        label: "Classes",
+        label: "Kelas",
         href: "/classes",
       },
       {
         icon: <MdClass />,
-        label: "Lessons",
+        label: "Pelajaran",
         href: "/lessons",
       },
       {
         icon: <PiExamFill />,
-        label: "Exams",
+        label: "Ujian",
         href: "/exams",
       },
       {
         icon: <MdAssignment />,
-        label: "Assignments",
+        label: "Tugas",
         href: "/assignments",
       },
       {
         icon: <RiFileList2Fill />,
-        label: "Attendance",
+        label: "Kehadiran",
         href: "/attendance",
       },
       {
         icon: <FaMoneyBill />,
-        label: "Finance",
+        label: "Keuangan",
         href: "/finance",
       },
       {
         icon: <MdInventory />,
-        label: "Inventory",
+        label: "Inventaris",
         href: "/inventory",
       },
       {
         icon: <RiCalendarScheduleFill />,
-        label: "Events",
+        label: "Agenda",
         href: "/events",
       },
       {
         icon: <IoIosMegaphone />,
-        label: "Announce",
+        label: "Pengumuman",
         href: "/announcements",
       },
     ],
@@ -113,7 +113,7 @@ const menuItems = [
     items: [
       {
         icon: <BsFillGearFill />,
-        label: "Settings",
+        label: "Pengaturan",
         href: "/settings",
       },
       {
