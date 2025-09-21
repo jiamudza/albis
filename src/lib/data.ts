@@ -23,6 +23,16 @@ export type Student = {
     avatar: string;
 }
 
+export type Parent = {
+  id: string;
+  nama: string;
+  telepon: string;
+  email: string;
+  alamat: string;
+  pekerjaan: string;
+  anak: string[];
+}
+
 export const role: string = "admin"
 
 export const studentsList = [
@@ -258,6 +268,109 @@ export const teachers = [
     "isActive": true,
     "rating": 4.8,
     "classes": ["PAI101", "AKH201"]
+  }
+]
+
+export const parentsList = [
+  {
+    "id": "wali-001",
+    "nama": "Budi Santoso",
+    "telepon": "081234567001",
+    "email": "budi.santoso@example.com",
+    "alamat": "Jl. Melati No. 15, Jakarta",
+    "pekerjaan": "Pegawai Negeri",
+    "hubungan": "Ayah",
+    "anak": ["Ahmad Fauzi", "Rina Santoso"]
+  },
+  {
+    "id": "wali-002",
+    "nama": "Siti Aminah",
+    "telepon": "081234567002",
+    "email": "siti.aminah@example.com",
+    "alamat": "Jl. Kenanga No. 7, Bandung",
+    "pekerjaan": "Ibu Rumah Tangga",
+    "hubungan": "Ibu",
+    "anak": ["Nur Aisyah"]
+  },
+  {
+    "id": "wali-003",
+    "nama": "Rahmat Hidayat",
+    "telepon": "081234567003",
+    "email": "rahmat.hidayat@example.com",
+    "alamat": "Jl. Mawar No. 22, Surabaya",
+    "pekerjaan": "Wiraswasta",
+    "hubungan": "Ayah",
+    "anak": ["Fikri Hidayat", "Alya Hidayat"]
+  },
+  {
+    "id": "wali-004",
+    "nama": "Dewi Kartika",
+    "telepon": "081234567004",
+    "email": "dewi.kartika@example.com",
+    "alamat": "Jl. Anggrek No. 5, Yogyakarta",
+    "pekerjaan": "Guru",
+    "hubungan": "Ibu",
+    "anak": ["Salsabila Putri"]
+  },
+  {
+    "id": "wali-005",
+    "nama": "Agus Prasetyo",
+    "telepon": "081234567005",
+    "email": "agus.prasetyo@example.com",
+    "alamat": "Jl. Cempaka No. 10, Medan",
+    "pekerjaan": "Dokter",
+    "hubungan": "Ayah",
+    "anak": ["Rizky Prasetyo", "Dinda Prasetyo"]
+  },
+  {
+    "id": "wali-006",
+    "nama": "Nurhayati",
+    "telepon": "081234567006",
+    "email": "nurhayati@example.com",
+    "alamat": "Jl. Dahlia No. 18, Semarang",
+    "pekerjaan": "Perawat",
+    "hubungan": "Ibu",
+    "anak": ["Maya Salsabila"]
+  },
+  {
+    "id": "wali-007",
+    "nama": "Hendri Saputra",
+    "telepon": "081234567007",
+    "email": "hendri.saputra@example.com",
+    "alamat": "Jl. Flamboyan No. 30, Palembang",
+    "pekerjaan": "Polisi",
+    "hubungan": "Ayah",
+    "anak": ["Rafi Saputra", "Rania Saputra"]
+  },
+  {
+    "id": "wali-008",
+    "nama": "Lestari Widya",
+    "telepon": "081234567008",
+    "email": "lestari.widya@example.com",
+    "alamat": "Jl. Kamboja No. 12, Makassar",
+    "pekerjaan": "Pegawai Bank",
+    "hubungan": "Ibu",
+    "anak": ["Anisa Widya"]
+  },
+  {
+    "id": "wali-009",
+    "nama": "Joko Purwanto",
+    "telepon": "081234567009",
+    "email": "joko.purwanto@example.com",
+    "alamat": "Jl. Kenari No. 25, Malang",
+    "pekerjaan": "Sopir",
+    "hubungan": "Ayah",
+    "anak": ["Bayu Purwanto", "Nadia Purwanto"]
+  },
+  {
+    "id": "wali-010",
+    "nama": "Fatimah Zahra",
+    "telepon": "081234567010",
+    "email": "fatimah.zahra@example.com",
+    "alamat": "Jl. Rambutan No. 3, Bekasi",
+    "pekerjaan": "Pengusaha",
+    "hubungan": "Ibu",
+    "anak": ["Aulia Zahra"]
   }
 ]
 

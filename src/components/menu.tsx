@@ -176,7 +176,7 @@ const Menu = () => {
                   {item.icon}
                 </span>
                 <span
-                  className={sideBar ? "hidden lg:block lg:text-xs" : "hidden"}
+                  className={sideBar ? "hidden lg:block lg:text-xs font-semibold" : "hidden"}
                 >
                   {item.label}
                 </span>
