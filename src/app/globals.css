@@ -26,30 +26,109 @@
     transform: translate(-50%, -50%);
 }
 
-/* Scrollbar untuk Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  width: 2px;       /* lebar scrollbar */
-  height: 2px;      /* tinggi scrollbar (untuk horizontal) */
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+  font-family: 'Poppins', 'sans serif' !important;
+  border-radius: 20px !important;
+  border: 1px solid #f3f2f7 !important;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;  /* warna track */
-  border-radius: 1px;
+.react-calendar__navigation {
+  border-radius: 20px 20px 0 0;
+  overflow: hiden;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888;      /* warna tombol scroll */
-  border-radius: 2px;
+/* .react-calendar__tile {
+  flex: none !important;
+  max-width: none !important;
+  border-radius: 50% !important;
+  height: 3vw !important;
+  width: 3vw !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  transition: background 0.2s;
+} */
+
+.react-calendar__tile--active {
+  background-color: #ffc107 !important;
+}
+.react-calendar__tile--now {
+  background-color: #c5b3e8 !important;
+  color: white !important;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #fcfaf0;      /* warna saat hover */
+.react-calendar__navigation__label {
+  font-weight: 600 !important;
+  color: white !important;
 }
 
-/* Scrollbar untuk Firefox */
-* {
-  scrollbar-width: 1px;              /* auto | thin | none */
-  scrollbar-color: #888 transparent;      /* thumb | track */
+.react-calendar__navigation {
+  background-color: #6B4BAC !important;
+  color: white !important;
 }
 
+.react-calendar__month-view__weekdays__weekday {
+  border: none !important;
+}
 
+.react-calendar abbr {
+  text-decoration: none !important;
+  cursor: default !important;
+}
+
+/* .react-calendar__month-view__days__day {
+  flex: none !important;
+  aspect-ratio: 1 / 1;
+  border-radius: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Container biar center */
+/* ==== TILE (tanggal) ==== */
+.react-calendar__tile {
+  aspect-ratio: 1 / 1;           /* kotak (1:1) */
+  border-radius: 50%;            /* bulat sempurna */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  transition: background 0.2s;
+}
+
+/* Warna tile default */
+.react-calendar__tile {
+  background: white;
+  color: #333;
+}
+
+/* Hover */
+.react-calendar__tile:hover {
+  background: #e0e0e0;
+}
+
+/* ==== HEADER (hari Minggu-Sabtu) ==== */
+.react-calendar__month-view__weekdays__weekday {
+  text-align: center;
+  padding: 0.5rem 0;
+  font-weight: bold;
+}
+
+/* Supaya align dengan tile */
+.react-calendar__month-view__weekdays {
+  display: grid !important;
+  grid-template-columns: repeat(7, 0.5fr); /* 7 kolom */
+  padding-inline: 20px;
+}
+
+/* ==== Grid hari ==== */
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 0.5fr); /* 7 kolom */
+  gap: 2px;
+  padding: 20px 20px;
+}
