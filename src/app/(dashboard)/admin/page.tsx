@@ -4,6 +4,7 @@ import 'react-calendar/dist/Calendar.css';
 import React from 'react'
 import AnnouncementCard from '@/components/announcementCard';
 import EventCard from '@/components/eventCard';
+import StudentChart from '@/components/studentCountChart';
 
 const AdminPage = () => {
 
@@ -19,6 +20,11 @@ const AdminPage = () => {
           <InfoCard type='Total Guru' count={25} />
           <InfoCard type='Total Mapel' count={14} />
           <InfoCard type='Total Kelas' count={11} /> 
+        </div>
+        {/* GRAFIK SISWA */}
+        <div className='flex flex-col lg:flex-row justify-between h-[900px] lg:h-[300px] gap-8 mt-3'>
+            <StudentChart />
+          <div className='flex-2/3'>r</div>
         </div>
       </div>
     {/* RIGHT */}
