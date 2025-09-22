@@ -32,7 +32,7 @@ const StudentChart = () => {
     }))
 
     return (
-        <div className='flex-1/3 bg-white rounded-md p-2 relative overflow-hidden'>
+        <div className='flex:1 lg:flex-1/3 bg-white rounded-md p-2 relative overflow-hidden shadow-md'>
             <div className='text-sm font-semibold text-text flex justify-between items-center'>
                 <p>Data Siswa</p>
                 <button>...</button>
@@ -58,7 +58,7 @@ const StudentChart = () => {
             <div className='flex items-center justify-center gap-5 lg:gap-2'>
                 {/* laki laki */}
                 <div className='flex-1/2 flex justify-center items-center gap-3'>
-                    <div className='h-5 w-5 rounded-full bg-primary'></div>
+                    <div className='h-4 w-4 rounded-full bg-primary'></div>
                     <div className='text-xs flex flex-col'>
                         <span className='font-semibold text-nowrap'>Laki-laki</span>
                         <span>{dataRaw[2].count}</span>
@@ -66,7 +66,7 @@ const StudentChart = () => {
                 </div>
                 {/* Perempuan */}
                 <div className='flex-1/2 flex justify-center items-center gap-3'>
-                    <div className='h-5 w-5 rounded-full bg-amber-400'></div>
+                    <div className='h-4 w-4 rounded-full bg-amber-400'></div>
                     <div className='text-xs md:text[12px] flex flex-col'>
                         <span className='font-semibold'>Perempuan</span>
                         <span>{dataRaw[1].count}</span>
@@ -78,4 +78,4 @@ const StudentChart = () => {
     )
 }
 
-export default StudentChart
+export default StudentChart;

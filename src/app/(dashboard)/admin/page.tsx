@@ -5,6 +5,7 @@ import React from 'react'
 import AnnouncementCard from '@/components/announcementCard';
 import EventCard from '@/components/eventCard';
 import StudentChart from '@/components/studentCountChart';
+import AttendanceChart from '@/components/attendanceChart';
 
 const AdminPage = () => {
 
@@ -22,10 +23,9 @@ const AdminPage = () => {
           <InfoCard type='Total Kelas' count={11} /> 
         </div>
         {/* GRAFIK SISWA */}
-        <div className='flex flex-col lg:flex-row justify-between h-[900px] lg:h-[300px] gap-8 mt-3'>
+        <div className='block lg:flex justify-start lg:justify-between gap-5 mt-3'>
             <StudentChart />
-            
-          <div className='flex-2/3'>r</div>
+            <AttendanceChart />
         </div>
       </div>
     {/* RIGHT */}

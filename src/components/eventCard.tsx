@@ -30,32 +30,32 @@ const EventCard = () => {
     console.log(darkColor())
     const [color] = useState(eventList.map(() => darkColor()))
   return (
-    <div>
+    <div className=''>
         {sortedEvent.map((item, i) => (
             <div 
             key={item.id}
             style={{backgroundColor: color[i]}}
             className={`text-white px-3 py-2 mt-2 rounded-md`}>
-                <span className='text-sm font-semibold'>{item.title}</span>
+                <span className='text-xs lg:text-sm font-semibold'>{item.title}</span>
                 <div className='text-xs mt-1'>
-                    <div className='flex items-center justify-start gap-2 rounded-full bg-white text-text px-2 py-1'>
+                    <div className='text-[10px] lg:text-xs flex items-center justify-start gap-2 rounded-full bg-white text-text px-2 py-1'>
                         <span className='font-semibold'>Mulai:</span>
                         <span>
                             {item.start.toLocaleString('id-ID', {
                         weekday: "long",
                         year: "numeric",
-                        month: "long",
+                        month: "numeric",
                         day: "numeric"
                     })}
                         </span>
                     </div>
-                    <div className='flex items-center justify-start gap-2 rounded-full bg-white text-text px-2 py-1 mt-2'>
+                    <div className='text-[10px] lg:text-xs flex items-center justify-start gap-2 rounded-full bg-white text-text px-2 py-1 mt-2'>
                         <span className='font-semibold'>Selesai:</span>
-                        <span>
+                        <span className=''>
                             {item.end.toLocaleString('id-ID', {
                         weekday: "long",
                         year: "numeric",
-                        month: "long",
+                        month: "numeric",
                         day: "numeric"
                     })}
                         </span>

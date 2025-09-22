@@ -156,3 +156,7 @@
 .react-calendar__navigation__arrow:hover {
   background-color: #b89dee !important;
 }
+
+.recharts-surface:focus {
+  outline: none !important;
+}
