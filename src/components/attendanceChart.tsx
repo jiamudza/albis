@@ -30,8 +30,8 @@ const data = [
   },
   {
     name: 'Sabtu',
-    Hadir: 188,
     Absen: 17,
+    Hadir: 188,
   },
 ];
 
@@ -42,7 +42,7 @@ const AttendanceChart = () => {
             <span className='text-sm font-semibold text-text'>Data Kehadiran</span>
             <span>...</span>
         </div>
-        <ResponsiveContainer width="100%" height="90%" className="mt-5 h-[full] focus:outline-none absolute-center">
+        <ResponsiveContainer width="100%" height="90%" debounce={300} className="mt-5 h-[full] focus:outline-none absolute-center">
       <BarChart
         width={500}
         height={300}
@@ -61,8 +61,8 @@ const AttendanceChart = () => {
         {/* <YAxis domain={[0, 205]} style={{fontSize: "10px"}} /> */}
         <Tooltip />
         <Legend align='left' verticalAlign='top' wrapperStyle={{ paddingBottom:"20px"}} />
-        <Bar radius={[0,10,0,0]} dataKey="Hadir" fill="#6b4bac" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-        <Bar radius={[0,10,0,0]} dataKey="Absen" fill="#FFC107" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+        <Bar radius={[0,10,0,0]} dataKey="Hadir" fill="#6b4bac" activeBar={<Rectangle fill="#9E6FD5" />} />
+        <Bar radius={[0,10,0,0]} dataKey="Absen" fill="#FFC107" activeBar={<Rectangle fill="#ebd671" />} />
       </BarChart>
     </ResponsiveContainer>
     </div>

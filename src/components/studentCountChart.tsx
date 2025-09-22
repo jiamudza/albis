@@ -42,7 +42,7 @@ const StudentChart = () => {
                     <span className='text-primary'><IoMan size={30} /></span>
                     <span className='text-amber-400'><IoWoman size={30} /></span>
                 </div>
-                <ResponsiveContainer height={220} className="">
+                <ResponsiveContainer debounce={300} height={220} className="">
                     <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={100} data={data}>
                         <RadialBar
                             // minAngle={2}

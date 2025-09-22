@@ -164,7 +164,7 @@ const Menu = () => {
                   " text-xs xl:text-xs flex justify-center lg:gap-4 text-center py-2 xl:px-2 transition-all ease-in-out duration-200 " +
                   (pathname === item.href
                     ? "text-purple-800 bg-third border-r-3 border-purple-800"
-                    : "hover:bg-[#ecebc391] transition-[hover] ease-in-out duration-75")
+                    : "hover:bg-[#ecebc391] transition-[hover] ease-in-out duration-200")
                 }
               >
                 <span
