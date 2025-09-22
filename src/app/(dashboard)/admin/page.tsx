@@ -3,23 +3,10 @@ import InfoCard from '@/components/infoCard'
 import 'react-calendar/dist/Calendar.css';
 import React from 'react'
 import AnnouncementCard from '@/components/announcementCard';
+import EventCard from '@/components/eventCard';
 
 const AdminPage = () => {
 
-  const announce = [
-    {
-      title: "Pemilihan Ketua Osis",
-      description: "Pemilihan ketua osis akan dilaksanakan pada 27 Oktober 2025"
-    },
-    {
-      title: "Rapat Guru",
-      description: "Rapat awal tahun 2025 pada 3 Januari"
-    },
-    {
-      title: "Jum'at Sehat",
-      description: "Minggu depan akan ada jum'at sehat, siswa/siswi diharapkan membawa alat kebersihan"
-    },
-  ]
 
   return (
     <div className='flex flex-col md:flex-row gap-2 mb-20 md:mb-0 overflow-y-auto'>
@@ -37,10 +24,19 @@ const AdminPage = () => {
     {/* RIGHT */}
       <div className='flex-1/3 overflow-hidden px-2 bg-white'>
       {/* CALENDAR */}
-      <EventCalendar />
+     <EventCalendar />
+
+    {/* AGENDA */}
+      <h3 className='px-2 font-bold'>Agenda</h3>
+      <div className='px-5 py-2'>
+        <EventCard />
+      </div>
+      
       {/* PENGUMUMAN */}
-      <h3 className='px-2 font-bold'>Pengumuman !</h3>
-    <AnnouncementCard announce={announce} />
+      <h3 className='px-2 font-bold mt-2'>Pengumuman !</h3>
+    <div className='px-5 py-2'>
+      <AnnouncementCard/>
+    </div>
       </div>
     </div>
   )

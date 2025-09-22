@@ -44,7 +44,7 @@ const columns = [
 const StudentPage = () => {
 
   const renderStudent = (item: Student) => (
-    <tr key={item.nis} className="text-xs border-b border-slate-200 even:bg-slate-50 hover:bg-accent hover:text-white px-20">
+    <tr key={item.nis} className="text-xs border-b border-slate-200 even:bg-white odd:bg-slate-50 hover:bg-accent hover:text-white px-20">
       <td className="flex items-center gap-2 p-2">
         <Image src={`https://avatar.iran.liara.run/public/${item.id}`} alt="" width={30} height={25} className="rounded-full object-cover " />
         <div className="flex flex-col">
@@ -60,8 +60,8 @@ const StudentPage = () => {
       <td className="hidden md:table-cell">{item.alamat}</td>
       <td className="">
         <div className="flex items-center gap-3">
-          <Link href={`/list/teacher/${item.id}`} className="bg-accent rounded-full hover:bg-primary"><TbListDetails size={22} className="p-1 rounded-full text-white" /></Link>
-          {role === "admin" && <div className="cursor-pointer bg-red-300 rounded-full hover:bg-red-400"><MdOutlineDelete size={22} className="p-1 rounded-full text-white" /></div>}
+          <abbr title="Detail" className="bg-accent rounded-full hover:bg-primary"><Link href={`/list/teacher/${item.id}`} className="bg-accent rounded-full hover:bg-primary"><TbListDetails size={22} className="p-1 rounded-full text-white" /></Link></abbr>
+          {role === "admin" && <abbr title="Hapus" className="cursor-pointer bg-red-300 rounded-full hover:bg-red-400"><MdOutlineDelete size={22} className="p-1 rounded-full text-white" /></abbr>}
         </div>
       </td>
     </tr>
@@ -70,7 +70,7 @@ const StudentPage = () => {
   return (
     <div className="px-3 py-2 overflow-x-hidden overflow-y-auto min-h-screen">
       <h3 className="font-bold text-lg text-primary mb-1">Data Siswa</h3>
-      <div className="border rounded-md border-slate-300">
+      <div className="border rounded-md bg-white border-slate-300">
         <div className="w-full flex justify-between items-center bg-transparent">
           <div className="w-80 px-3">
             <Search />
@@ -86,7 +86,7 @@ const StudentPage = () => {
         <TableList key="student" columns={columns} renderRow={renderStudent} data={studentsList} />
       </div>
       <div>
-        <Pagination />
+        <Pagination dataLength={studentsList.length} />
       </div>
     </div>
   );

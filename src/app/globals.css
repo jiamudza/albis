@@ -53,16 +53,18 @@
 } */
 
 .react-calendar__tile--active {
-  background-color: #ffc107 !important;
+  background-color: #c0abeb !important;
 }
 .react-calendar__tile--now {
-  background-color: #c5b3e8 !important;
+  background-color: #ef84d2 !important;
   color: white !important;
+  /* font-size: 2em !important; */
 }
 
 .react-calendar__navigation__label {
   font-weight: 600 !important;
   color: white !important;
+  font-size: 0.9em !important;
 }
 
 .react-calendar__navigation {
@@ -91,7 +93,7 @@
 /* Container biar center */
 /* ==== TILE (tanggal) ==== */
 .react-calendar__tile {
-  aspect-ratio: 1 / 1;           /* kotak (1:1) */
+  aspect-ratio: 1 / 1;        /* kotak (1:1) */
   border-radius: 50%;            /* bulat sempurna */
   display: flex;
   justify-content: center;
@@ -108,20 +110,20 @@
 
 /* Hover */
 .react-calendar__tile:hover {
-  background: #e0e0e0;
+  background: #b4eff8 !important;
 }
 
 /* ==== HEADER (hari Minggu-Sabtu) ==== */
 .react-calendar__month-view__weekdays__weekday {
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 0;
   font-weight: bold;
 }
 
 /* Supaya align dengan tile */
 .react-calendar__month-view__weekdays {
   display: grid !important;
-  grid-template-columns: repeat(7, 0.5fr); /* 7 kolom */
+  grid-template-columns: repeat(7, 0.5fr); 
   padding-inline: 20px;
 }
 
@@ -131,4 +133,20 @@
   grid-template-columns: repeat(7, 0.5fr); /* 7 kolom */
   gap: 2px;
   padding: 20px 20px;
+}
+
+.react-calendar__navigation__prev2-button {
+  border-radius: 20px 0 0 0 !important;
+}
+
+.react-calendar__navigation__next2-button {
+  border-radius: 0 20px 0 0;
+}
+
+.react-calendar__navigation__label:hover {
+  background-color: #b89dee !important;
+}
+
+.react-calendar__navigation__arrow:hover {
+  background-color: #b89dee !important;
 }
