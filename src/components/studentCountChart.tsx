@@ -4,7 +4,7 @@ import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarRadiusAxis
 import { IoMan, IoWoman } from "react-icons/io5";
 
 const dataRaw = [
-    
+
     {
         name: 'Total',
         count: 205,
@@ -38,24 +38,24 @@ const StudentChart = () => {
                 <button>...</button>
             </div>
             <div className='relative'>
-                <div className='absolute-center flex z-10'>
-                <span className='text-primary'><IoMan size={20}/></span>
-                <span className='text-amber-400'><IoWoman size={20}/></span>
-            </div>
+                <div className='absolute-center flex justify-center z-10'>
+                    <span className='text-primary'><IoMan size={30} /></span>
+                    <span className='text-amber-400'><IoWoman size={30} /></span>
+                </div>
                 <ResponsiveContainer height={220} className="">
-                <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={100} data={data}>
-                    <RadialBar
-                        // minAngle={2}
-                        // label={{ position: 'insideStart', fill: '#fff' }}
-                        background
-                        // clockWise
-                        dataKey="count"
-                    />
-                    {/* <PolarRadiusAxis domain={[0, 100]} tick={false} /> */}
-                </RadialBarChart>
-            </ResponsiveContainer>
+                    <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={100} data={data}>
+                        <RadialBar
+                            // minAngle={2}
+                            // label={{ position: 'insideStart', fill: '#fff' }}
+                            background
+                            // clockWise
+                            dataKey="count"
+                        />
+                        {/* <PolarRadiusAxis domain={[0, 100]} tick={false} /> */}
+                    </RadialBarChart>
+                </ResponsiveContainer>
             </div>
-            <div className='flex items-center justify-between'>
+            <div className='flex items-center justify-center gap-5 lg:gap-2'>
                 {/* laki laki */}
                 <div className='flex-1/2 flex justify-center items-center gap-3'>
                     <div className='h-5 w-5 rounded-full bg-primary'></div>

@@ -24,6 +24,7 @@ const AdminPage = () => {
         {/* GRAFIK SISWA */}
         <div className='flex flex-col lg:flex-row justify-between h-[900px] lg:h-[300px] gap-8 mt-3'>
             <StudentChart />
+            
           <div className='flex-2/3'>r</div>
         </div>
       </div>
