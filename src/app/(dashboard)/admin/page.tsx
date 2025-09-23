@@ -6,12 +6,13 @@ import AnnouncementCard from '@/components/announcementCard';
 import EventCard from '@/components/eventCard';
 import StudentChart from '@/components/studentCountChart';
 import AttendanceChart from '@/components/attendanceChart';
+import FinanceChart from '@/components/financeChart';
+import { role } from '@/lib/data';
 
 const AdminPage = () => {
 
-
   return (
-    <div className='flex flex-col md:flex-row gap-2 mb-20 md:mb-0 overflow-y-auto'>
+    <div className='flex flex-col md:flex-row gap-2 md:mb-0 overflow-y-auto'>
       {/* LEFT */}
       <div className="flex-2/3 p-3">
         <h3 className='text-lg font-bold text-primary'>Dashboard</h3>
@@ -27,9 +28,12 @@ const AdminPage = () => {
             <StudentChart />
             <AttendanceChart />
         </div>
+    {   role === "admin" && <div className='h-[50vh] mt-3'>
+          <FinanceChart />
+        </div>}
       </div>
     {/* RIGHT */}
-      <div className='flex-1/3 overflow-hidden px-2 bg-white'>
+      <div className='flex-1/3 overflow-hidden px-2 bg-white pb-20 md:pb-0'>
       {/* CALENDAR */}
      <EventCalendar />
 

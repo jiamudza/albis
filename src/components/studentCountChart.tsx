@@ -2,6 +2,7 @@
 import React from 'react'
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarRadiusAxis } from 'recharts';
 import { IoMan, IoWoman } from "react-icons/io5";
+import { useRouter } from 'next/navigation';
 
 const dataRaw = [
 
@@ -24,18 +25,22 @@ const dataRaw = [
 
 
 const StudentChart = () => {
-    const total = dataRaw.reduce((sum, d) => sum + d.count, 0)
+        const router = useRouter();
 
-    const data = dataRaw.map(d => ({
-        ...d,
-        percent: (d.count / total) * 100
-    }))
+        const handleClick = () => {
+            router.push("/list/students")
+        }
 
     return (
-        <div className='flex:1 lg:flex-1/3 bg-white rounded-md p-2 relative overflow-hidden shadow-md'>
+        <div
+        className='flex:1 lg:flex-1/3 bg-white rounded-md p-2 relative overflow-hidden shadow-md border-b-3 border-third'>
             <div className='text-sm font-semibold text-text flex justify-between items-center'>
                 <p>Data Siswa</p>
-                <button>...</button>
+                <abbr 
+                title='Detail'
+                onClick={handleClick}
+                className='cursor-pointer no-underline'
+                >...</abbr>
             </div>
             <div className='relative'>
                 <div className='absolute-center flex justify-center z-10'>
@@ -43,7 +48,7 @@ const StudentChart = () => {
                     <span className='text-amber-400'><IoWoman size={30} /></span>
                 </div>
                 <ResponsiveContainer debounce={300} height={220} className="">
-                    <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={100} data={data}>
+                    <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={100} data={dataRaw}>
                         <RadialBar
                             // minAngle={2}
                             // label={{ position: 'insideStart', fill: '#fff' }}

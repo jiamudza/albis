@@ -37,7 +37,7 @@ const data = [
 
 const AttendanceChart = () => {
   return (
-    <div className='flex-1 lg:flex-2/3 h-full bg-white p-2 min-h-[300px] rounded-md shadow-md relative top w-full mt-2 lg:mt-0'>
+    <div className='flex-1 lg:flex-2/3 h-full bg-white p-2 min-h-[300px] rounded-md shadow-md relative top w-full mt-2 lg:mt-0 border-b-3 border-third overflow-hidden'>
         <div className='flex items-center justify-between'>
             <span className='text-sm font-semibold text-text'>Data Kehadiran</span>
             <span>...</span>
@@ -60,7 +60,7 @@ const AttendanceChart = () => {
         <XAxis dataKey="name" style={{fontSize: "10px"}} />
         {/* <YAxis domain={[0, 205]} style={{fontSize: "10px"}} /> */}
         <Tooltip />
-        <Legend align='left' verticalAlign='top' wrapperStyle={{ paddingBottom:"20px"}} />
+        <Legend align='left' verticalAlign='top' wrapperStyle={{ paddingBottom:"20px", fontSize: "10px"}} />
         <Bar radius={[0,10,0,0]} dataKey="Hadir" fill="#6b4bac" activeBar={<Rectangle fill="#9E6FD5" />} />
         <Bar radius={[0,10,0,0]} dataKey="Absen" fill="#FFC107" activeBar={<Rectangle fill="#ebd671" />} />
       </BarChart>

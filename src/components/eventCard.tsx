@@ -27,15 +27,12 @@ const sortedEvent = eventList.sort((a, b) => a.id - b.id)
 
 const EventCard = () => {
 
-    console.log(darkColor())
-    const [color] = useState(eventList.map(() => darkColor()))
   return (
     <div className=''>
-        {sortedEvent.map((item, i) => (
+        {sortedEvent.map((item) => (
             <div 
             key={item.id}
-            style={{backgroundColor: color[i]}}
-            className={`text-white px-3 py-2 mt-2 rounded-md`}>
+            className={`text-white px-3 py-2 mt-2 rounded-md even:bg-pink-300 odd:bg-third`}>
                 <span className='text-xs lg:text-sm font-semibold'>{item.title}</span>
                 <div className='text-xs mt-1'>
                     <div className='text-[10px] lg:text-xs flex items-center justify-start gap-2 rounded-full bg-white text-text px-2 py-1'>

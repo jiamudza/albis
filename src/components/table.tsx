@@ -7,8 +7,6 @@ type TableListProps = {
 };
 
 const TableList = ({ columns, renderRow, data }: TableListProps) => {
-
-  console.log(data)
   return (
     <div className='cursor-default overflow-auto'>
       <table className='w-full border-collapse table-auto'>

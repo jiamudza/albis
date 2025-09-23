@@ -1,7 +1,10 @@
+import DynamicNavbar from "@/components/dynamic/dynamicNavbar";
 import Menu from "@/components/menu";
-import Navbar from "@/components/navbar";
+import dynamic from "next/dynamic";
+// import Navbar from "@/components/navbar";
 import Link from "next/link";
 import React from "react";
+
 
 const DashboardLayout = ({
   children,
@@ -16,7 +19,7 @@ const DashboardLayout = ({
       </div>
       {/* RIGHT */}
       <div className="w-full relative bg-background overflow-auto transition-all ease-in-out duration-200">
-        <Navbar />
+        <DynamicNavbar />
         {children}
       </div>
     </div>
