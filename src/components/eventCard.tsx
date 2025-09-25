@@ -29,6 +29,7 @@ const EventCard = () => {
 
   return (
     <div className=''>
+        <p className='font-bold'>Agenda</p>
         {sortedEvent.map((item) => (
             <div 
             key={item.id}

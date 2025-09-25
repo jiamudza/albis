@@ -1,6 +1,6 @@
 import EventCalendar from '@/components/eventCalendar'
 import InfoCard from '@/components/infoCard'
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
 import React from 'react'
 import AnnouncementCard from '@/components/announcementCard';
 import EventCard from '@/components/eventCard';
@@ -38,13 +38,11 @@ const AdminPage = () => {
      <EventCalendar />
 
     {/* AGENDA */}
-      <h3 className='px-2 font-bold'>Agenda</h3>
       <div className='px-5 py-2'>
         <EventCard />
       </div>
       
       {/* PENGUMUMAN */}
-      <h3 className='px-2 font-bold mt-2'>Pengumuman !</h3>
     <div className='px-5 py-2'>
       <AnnouncementCard/>
     </div>

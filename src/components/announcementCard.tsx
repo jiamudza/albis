@@ -18,6 +18,7 @@ const announce = [
 const AnnouncementCard = () => {
   return (
     <div className=''>
+      <p className='font-bold'>Pengumuman!</p>
         {announce.map(item => (
             <div key={item.title} className='odd:bg-primary even:bg-amber-500 py-2 px-3 rounded-md mt-2 text-white'>
                 <div className='flex justify-between items-center '>
