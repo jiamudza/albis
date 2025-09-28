@@ -68,7 +68,7 @@ const StudentPage = () => {
   )
 
   return (
-    <div className="px-3 py-2 overflow-x-hidden overflow-y-auto min-h-screen">
+    <div className="px-3 py-2 overflow-auto">
       <h3 className="font-bold text-lg text-primary mb-1">Data Siswa</h3>
       <div className="border rounded-md bg-white border-slate-300">
         <div className="w-full flex justify-between items-center bg-transparent">

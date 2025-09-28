@@ -8,7 +8,7 @@ const localizer = momentLocalizer(moment)
 
 const BigCalendar = () => {
   return (
-    <div className='bg-white p-4 rounded-md border-b-3 border-third shadow-md'>
+    <div className='bg-white px-0 rounded-md border-b-3 border-third shadow-md font-poppins'>
         <Calendar
       localizer={localizer}
       events={[

@@ -32,6 +32,10 @@
     transform: translate(-50%, -50%);
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}
+
 .react-calendar {
   width: 100% !important;
   border: none !important;
@@ -178,4 +182,18 @@
 
 .react-calendar__month-view__days__day--neighboringMonth {
   color:  #dddddd !important;
+}
+
+.rbc-calendar {
+  font-family: 'Poppins', 'sans serif' !important;
+}
+
+.rbc-timeslot-group {
+  color : rgb(63, 9, 90) !important;
+  font-size: 12px !important;
+}
+
+.rbc-calendar-label {
+  font-size: 12px !important;
+  font-weight: 600 !important;
 }

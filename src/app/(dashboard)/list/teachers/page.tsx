@@ -67,7 +67,7 @@ const TeacherPage = () => {
   )
 
   return (
-    <div className="px-3 py-2 overflow-x-hidden min-h-screen">
+    <div className="px-3 py-2">
       <h3 className="font-bold text-lg text-primary mb-1">Data Guru</h3>
       <div className="border rounded-md border-slate-300">
         <div className="w-full flex justify-between items-center bg-transparent">
@@ -84,7 +84,7 @@ const TeacherPage = () => {
         </div>
         <TableList key="teacher" columns={columns} renderRow={renderRow} data={teachers} /></div>
       <div>
-        <Pagination />
+        <Pagination dataLength={teachers.length} />
       </div>
     </div>
   );
