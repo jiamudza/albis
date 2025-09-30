@@ -78,8 +78,8 @@ const menuItems = [
       },
       {
         icon: <MdAssignment />,
-        label: "Tugas",
-        href: "/assignments",
+        label: "SPMB",
+        href: "/spmb",
       },
       {
         icon: <RiFileList2Fill />,

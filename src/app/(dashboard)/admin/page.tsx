@@ -8,6 +8,7 @@ import AttendanceChart from '@/components/attendanceChart';
 import FinanceChart from '@/components/financeChart';
 import { role } from '@/lib/data';
 import InventoryApproval from '@/components/inventoryApproval';
+import SpmbNotifCard from '@/components/spmbNotifCard';
 
 const AdminPage = () => {
 
@@ -35,7 +36,9 @@ const AdminPage = () => {
           <div className='flex-1/2'>
             <InventoryApproval />
           </div>
-          <div className='flex-1/2'></div>
+          <div className='flex-1/2'>
+            <SpmbNotifCard />
+          </div>
         </div>
       </div>
     {/* RIGHT */}
