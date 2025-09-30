@@ -15,11 +15,10 @@ const SpmbNotifCard = () => {
         .catch(err => console.log(err))
     }, [])
 
-    console.log(data)
   return (
     <div className='bg-white rounded-md shadow-md border-b-3 relative p-2 border-third h-full z-0 overflow-hidden'
     >
-            <Image src={spmbLogo} alt='' width={600} height={600} className='absolute inset-0 -z-10 opacity-10' />
+            <Image src={spmbLogo} alt='' width={600} height={600} className='absolute inset-0 -z-10 opacity-5' />
 
         <div className='flex justify-between'>
             <h3 className='text-sm mb-3 font-semibold text-text'>Pendaftar Terbaru</h3>
@@ -27,7 +26,7 @@ const SpmbNotifCard = () => {
         </div>
         {data && data.map(item => (
             <div key={item.id} className='flex items-center justify-start gap-3  border-b-1 border-slate-200 py-4'>
-                <Image src={item.foto_kecil ? item.foto_kecil : `https://avatar.iran.liara.run/public/4`} alt='' width={50} height={50} className='rounded-full' />
+                <Image src={item.foto_kecil ? item.foto_kecil : `https://avatar.iran.liara.run/public/`} alt='' width={50} height={50} className='rounded-full' />
                 <div>
                     <p className='text-sm font-semibold'>{item.nama_lengkap}</p>
                 <p className='text-xs'>{item.pilihan_program}</p>

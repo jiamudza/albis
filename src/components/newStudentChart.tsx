@@ -4,11 +4,10 @@ import { Cell, Legend, Pie, PieChart } from 'recharts';
 
 const data = [
     { name: 'Boarding', value: 7 },
-    { name: 'Afirmasi', value: 13 },
     { name: 'Prestasi', value: 25 },
     { name: 'Reguler', value: 20 },
 ];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', "#e4e9f0"];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28'];
 
 const NewStudentsChart = () => {
     return (

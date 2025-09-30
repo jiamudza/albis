@@ -6,6 +6,8 @@ type TableListProps = {
   data: any[];
 };
 
+
+
 const TableList = ({ columns, renderRow, data }: TableListProps) => {
   return (
     <div className='cursor-default overflow-auto'>

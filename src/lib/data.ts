@@ -22,6 +22,16 @@ export type Student = {
     alamat: string;
     avatar: string;
 }
+export type newStudent = {
+    id: string;
+    foto_kecil: string;
+    nama_lengkap: string;
+    email?: string;
+    pilihan_program: string;
+    asal_sekolah: string;
+    alamat_lengkap: string;
+    jenis_kelamin: string;
+}
 
 export type Parent = {
   id: string;
