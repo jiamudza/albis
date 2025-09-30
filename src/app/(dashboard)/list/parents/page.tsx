@@ -42,7 +42,6 @@ const columns = [
 ]
 
 const ParentsPage = () => {
-  console.log(parentsList)
 
   const renderParent = (item: Parent) => (
     <tr key={item.id} className="text-xs border-b border-slate-200 even:bg-slate-50 hover:bg-accent hover:text-white px-20">
