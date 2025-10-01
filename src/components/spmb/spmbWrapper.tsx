@@ -50,7 +50,7 @@ const SpmbWrapper = () => {
         }]
     }
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const [data, setData] = useState<DataResponse>({
         page: 0,
@@ -65,13 +65,15 @@ const SpmbWrapper = () => {
             jumlah: 0,
         }]
     })
+
+    const [studentDetail, setStudentDetail] = useState(false)
     // const { data, error, isLoading, hasNextPage, hasPrevPage, page, total, totalPages, limit } = await useNewStudent(filter.search)
 
     useEffect(() => {
 
         const handler = setTimeout(() => {
             setDebounceSearch(filter.search)
-        }, 1000)
+        }, 500)
 
         return () => clearTimeout(handler);
 
@@ -124,7 +126,7 @@ const SpmbWrapper = () => {
 
     const component = () => {
         if (tabActive === "data")
-            return <NewStudentsTable data={student} pageData={pageData} filter={handleSearch} />
+            return <NewStudentsTable data={student} pageData={pageData} filter={handleSearch} loading={loading}/>
         // return <div></div>
         if (tabActive === "persentase")
             return <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
