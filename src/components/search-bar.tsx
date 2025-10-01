@@ -1,6 +1,6 @@
 import React from "react";
 import { IoSearch } from "react-icons/io5";
-const Search = () => {
+const Search = ({filter} : {filter : (value:string) => void}) => {
   return (
     <div
       className="bg-opacity-30 border-accent flex items-center justify-start gap-2 rounded-full border border-b-4 bg-white px-1 py-1 text-xs"
@@ -15,6 +15,9 @@ const Search = () => {
       <input
         type="text"
         placeholder="Search..."
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          filter(e.target.value)
+        }}
         className="w-full text-button-bg border-none bg-transparent px-2 placeholder-gray-400 outline-none"
       />
     </div>

@@ -42,8 +42,6 @@ const Navbar = ({ timezone = Intl.DateTimeFormat().resolvedOptions().timeZone })
   const dateString = new Intl.DateTimeFormat("id-ID", dateOptions).format(now)
   return (
     <div className="flex items-center justify-between border-b border-gray-200 py-2 px-5 bg-white sticky top-0 z-50 box-border h-[8vh]">
-      {/* Search Bar */}
-      {/* <Search /> */}
       <div className="">
         <div className="hidden lg:block">
           <div className="text-xs text-slate-500 dark:text-slate-300">Zona: <span className="font-medium">{timezone}</span></div>
