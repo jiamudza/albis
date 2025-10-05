@@ -64,9 +64,6 @@ const columns = [
     },
 ]
 
-const pembayaran = true
-
-
 const NewStudentsTable = ({ data, pageData, filter, loading }: { data: any[], pageData: DataCount, filter: (value: string) => void, loading: boolean }) => {
 
     const [id, setId] = useState("")
@@ -93,9 +90,9 @@ const NewStudentsTable = ({ data, pageData, filter, loading }: { data: any[], pa
                 {item.pilihan_program}
             </td>
             <td className="hidden md:table-cell w-1/12 max-w-0 whitespace-nowrap truncate">{item.asal_sekolah}</td>
-            <td className="hidden md:table-cell max-w-0 whitespace-nowrap truncate text-center">{pembayaran ? <p className='font-semibold text-green-500 rounded-full w-20 mx-auto bg-white p-1'>Lunas</p> : <p className='font-semibold text-yellow-500'>Belum Lunas</p>}</td>
+            <td className="hidden md:table-cell max-w-0 whitespace-nowrap truncate text-center">{item.status_pembayaran}</td>
             {/* <td className="hidden md:table-cell max-w-0 whitespace-nowrap truncate px-2">{item.alamat_lengkap}</td> */}
-            <td className="hidden md:table-cell w-1/12 max-w-0 whitespace-nowrap truncate text-center">Tunai</td>
+            <td className="hidden md:table-cell w-1/12 max-w-0 whitespace-nowrap truncate text-center">{item.metode_bayar}</td>
             <td className="">
                 <div className="flex items-center justify-center gap-3">
                     <abbr title="Detail" onClick={(e : React.MouseEvent<HTMLButtonElement>) => { 

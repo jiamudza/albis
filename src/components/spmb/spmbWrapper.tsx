@@ -125,9 +125,11 @@ const SpmbWrapper = () => {
     const programSummary = data.summary;
 
     const component = () => {
+        // DATA
         if (tabActive === "data")
             return <NewStudentsTable data={student} pageData={pageData} filter={handleSearch} loading={loading}/>
         // return <div></div>
+        // Persentase
         if (tabActive === "persentase")
             return <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
                 <div className='h-1 w-full bg-pink-300  rounded-tr-md'></div>
@@ -135,17 +137,17 @@ const SpmbWrapper = () => {
                     <div className='flex-1/2'>
                         <NewStudentsChart programSummary={programSummary} />
                     </div>
-                    <div className='flex-1/2'>r</div>
                 </div>
             </div>
+            // Anggaran
         if (tabActive === "anggaran")
             return <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
                 <div className='h-1 w-full bg-amber-300 rounded-tr-md'></div>
-                anggaran</div>
-
+                <p className='p-4'>Anggaran</p></div>
+            // Sosialisasi
         return <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
             <div className='h-1 w-full bg-blue-300 rounded-tr-md'></div>
-            Sosialisasi</div>
+            <p className='p-4'>Sosialisasi</p></div>
     }
 
 

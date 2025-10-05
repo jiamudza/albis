@@ -31,6 +31,8 @@ export type newStudent = {
     asal_sekolah: string;
     alamat_lengkap: string;
     jenis_kelamin: string;
+    status_pembayaran: string;
+    metode_bayar: string;
 }
 
 export type Parent = {
