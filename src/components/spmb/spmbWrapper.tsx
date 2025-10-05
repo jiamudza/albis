@@ -15,17 +15,17 @@ const tab = [
     {
         key: "persentase",
         Label: "Persentase",
-        className: "px-4 py-1 border-t-4 border-pink-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-pink-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white -mr-2 relative z-20"
+        className: "px-2 lg:px-4 py-1 border-t-4 border-pink-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-pink-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white -mr-2 relative z-20"
     },
     {
         key: "anggaran",
         Label: "Anggaran",
-        className: "px-4 py-1 border-t-4 border-amber-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-amber-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white -mr-2 relative z-10"
+        className: "px-2 lg:px-4 py-1 border-t-4 border-amber-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-amber-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white -mr-2 relative z-10"
     },
     {
         key: "sosialisasi",
         Label: "Sosialisasi",
-        className: "px-4 py-1 border-t-4 border-blue-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-blue-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white relative z-0"
+        className: "px-2 lg:px-4 py-1 border-t-4 border-blue-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-blue-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white relative z-0"
     },
 ]
 
@@ -127,6 +127,7 @@ const SpmbWrapper = () => {
     const component = () => {
         // DATA
         if (tabActive === "data")
+
             return <NewStudentsTable data={student} pageData={pageData} filter={handleSearch} loading={loading}/>
         // return <div></div>
         // Persentase
@@ -156,7 +157,7 @@ const SpmbWrapper = () => {
 
             <div className='flex flex-col lg:flex-row'>
                 {/* left */}
-                <div className='flex-2/3 p-3' >
+                <div className='flex-2/3' >
                     <h3 className='font-bold text-lg text-primary'>Sistem Penerimaan Murid Baru (SPMB)</h3>
                     <div className='flex mt-2'>
 

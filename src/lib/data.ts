@@ -33,6 +33,7 @@ export type newStudent = {
     jenis_kelamin: string;
     status_pembayaran: string;
     metode_bayar: string;
+    fase: string;
 }
 
 export type Parent = {

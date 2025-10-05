@@ -84,7 +84,7 @@ const NewStudentsTable = ({ data, pageData, filter, loading }: { data: any[], pa
                 </div>
             </td>
             <td className='hidden md:table-cell max-w-0 whitespace-nowrap truncate text-center'>
-                Gelombang 1
+                {item.fase}
             </td>
             <td className='text-center'>
                 {item.pilihan_program}
@@ -95,9 +95,10 @@ const NewStudentsTable = ({ data, pageData, filter, loading }: { data: any[], pa
             <td className="hidden md:table-cell w-1/12 max-w-0 whitespace-nowrap truncate text-center">{item.metode_bayar}</td>
             <td className="">
                 <div className="flex items-center justify-center gap-3">
-                    <abbr title="Detail" onClick={(e : React.MouseEvent<HTMLButtonElement>) => { 
+                    <abbr title="Detail" onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                         setDetail(true),
-                        setId(e.currentTarget.id) }} id={item.id} className="bg-accent rounded-full hover:bg-primary cursor-pointer"><TbListDetails size={22} className="p-1 rounded-full text-white" /></abbr>
+                            setId(e.currentTarget.id)
+                    }} id={item.id} className="bg-accent rounded-full hover:bg-primary cursor-pointer"><TbListDetails size={22} className="p-1 rounded-full text-white" /></abbr>
                     {role === "admin" && <abbr title="Hapus" className="cursor-pointer bg-red-300 rounded-full hover:bg-red-400"><MdOutlineDelete size={22} className="p-1 rounded-full text-white" /></abbr>}
                 </div>
             </td>
@@ -117,10 +118,10 @@ const NewStudentsTable = ({ data, pageData, filter, loading }: { data: any[], pa
 
     return (
         <div className='relative z-0'>
-            <div className="border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300 ">
+            <div className="border h-full border-t-0 rounded-md rounded-tl-none bg-white border-slate-300 ">
                 <div className='h-1 w-full bg-third rounded-tr-md'></div>
 
-                <div className="w-full flex justify-between items-center bg-transparent">
+                <div className={` ${detail ? "hidden" : ""} w-full flex justify-between items-center bg-transparent`}>
                     <div className="w-80 px-3">
                         <Search filter={filter} />
                     </div>
@@ -129,13 +130,13 @@ const NewStudentsTable = ({ data, pageData, filter, loading }: { data: any[], pa
                     </div>
                 </div>
 
-                {renderResult()}
-                {detail && <NewStudentDetail handleDetail={handleDetailFalse} id={id} detail={detail}/>}
+                {!detail && renderResult()}
+                {detail && <NewStudentDetail handleDetail={handleDetailFalse} id={id} detail={detail} />}
             </div>
 
-            <div>
+            {!detail && <div className=''>
                 <Pagination dataCount={pageData} />
-            </div>
+            </div>}
         </div>
     )
 }
