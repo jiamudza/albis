@@ -1,23 +1,23 @@
 import Menu from "@/components/menu";
 import Navbar from "@/components/navbar";
-import Link from "next/link";
-import React from "react";
+import { getUserFromCookie } from "@/lib/getUser";
+import { redirect } from "next/navigation";
 
+export const metadata = { title: "Dashboard" };
 
-const DashboardLayout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
+  const user = await getUserFromCookie();
+  console.log(getUserFromCookie())
+
+  if (!user) redirect("/login"); // kalau belum login, redirect ke login
+
   return (
     <div className="flex w-full h-screen overflow-auto scrollbar-hide">
-      {/* LEFT */}
       <div className="w-14 md:hover:w-14 lg:hover:w-[18%] xl:hover:w-[18%] border-r-[1px] border-slate-200 transition-all ease-in-out duration-200 overflow-auto scrollbar-hide">
-        <Menu />
+        <Menu user={user} />
       </div>
-      {/* RIGHT */}
       <div className="w-full relative bg-background overflow-auto transition-all ease-in-out duration-200 scrollbar-hide">
-        <Navbar />
+        <Navbar user={user} />
         {children}
       </div>
     </div>

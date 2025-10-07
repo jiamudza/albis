@@ -8,7 +8,9 @@ const SpmbNotifCard = () => {
     const [data, setData] = useState<Partial<any>[]>([])
 
     useEffect( () => {
-        axios.get(`http://localhost:5000/api/getNewStudents`)
+        axios.get(`https://albis-navy.vercel.app/api/getNewStudents?limit=4`, {
+            withCredentials: true
+        })
         .then(res => {
             setData(res.data.data)
         })
@@ -16,7 +18,7 @@ const SpmbNotifCard = () => {
     }, [])
 
   return (
-    <div className='bg-white rounded-md shadow-md border-b-3 relative p-2 border-third h-full z-0 overflow-hidden'
+    <div className='bg-white rounded-md shadow-md border-b-3 relative p-2 border-third h-[58vh] z-0 overflow-hidden'
     >
             <Image src={spmbLogo} alt='' width={600} height={600} className='absolute inset-0 -z-10 opacity-5' />
 

@@ -27,9 +27,6 @@ const tab = [
 ]
 
 const SPMB = async () => {
-
-    
-
     return (
         <div className='p-3'>
             <SpmbWrapper />

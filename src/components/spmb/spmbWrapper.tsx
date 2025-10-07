@@ -84,7 +84,7 @@ const SpmbWrapper = () => {
     useEffect(() => {
         setLoading(true)
 
-        axios.get(`http://localhost:5000/api/getNewStudents?search=${filter.search}`)
+        axios.get(`https://albis-navy.vercel.app/api/getNewStudents?search=${filter.search}`, {withCredentials: true})
             .then(res => {
                 setData(res.data)
             })

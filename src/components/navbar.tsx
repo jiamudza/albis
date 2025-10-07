@@ -6,12 +6,18 @@ import Image from "next/image";
 import Search from "./search-bar";
 import { useState, useEffect } from 'react'
 
-const Navbar = ({ timezone = Intl.DateTimeFormat().resolvedOptions().timeZone }) => {
+interface NavbarProps {
+  user: {role: string, nama_lengkap: string};
+  timezone?: string;
+}
+
+
+
+const Navbar = ({ user, timezone = Intl.DateTimeFormat().resolvedOptions().timeZone }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const date = new Date()
   const [now, setNow] = useState(() => new Date())
   const [is24h, setIs24h] = useState(true)
-
 
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 1000)
@@ -80,8 +86,8 @@ const Navbar = ({ timezone = Intl.DateTimeFormat().resolvedOptions().timeZone })
             className="h-8 w-8 rounded-full object-fill bg-amber-300"
           />
           <div className="hidden md:block">
-            <p className="text-xs lg:text-sm font-medium text-text text-nowrap">Ajimas Bagus K.</p>
-            <p className="text-xs text-gray-500">Admin</p>
+            <p className="text-xs lg:text-sm font-medium text-text text-nowrap">{user.nama_lengkap}</p>
+            <p className="text-xs text-gray-500">{user.role[0]}</p>
           </div>
           <div
             className="relative"
