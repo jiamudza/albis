@@ -43,7 +43,7 @@ const LoginForm = () => {
       );
 
       setUser(res.data.user);
-      // setTimeout(() => router.push('/spmb'), 300);
+      router.push('/spmb')
 
     } catch (err: any) {
 

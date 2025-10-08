@@ -4,9 +4,7 @@ import { redirect } from "next/navigation";
 
 const LoginPage = async () => {
   const user = await getUserFromCookie();
-  
-console.log(user)
-  if (user) redirect("/admin"); // kalau sudah login, langsung redirect
+  if (user) redirect("/spmb"); // kalau sudah login, langsung redirect
 
   return (
     <div
