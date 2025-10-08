@@ -72,7 +72,7 @@ const ParentsPage = () => {
       <div className="border rounded-md border-slate-300">
         <div className="w-full flex justify-between items-center bg-transparent">
           <div className="w-80 px-3">
-            <Search />
+            {/* <Search /> */}
           </div>
           <div className="flex justify-end items-center gap-3 py-3 px-2 md:px-5 ">
             <span className="flex items-center justify-center md:justify-end gap-2 bg-primary font-bold py-2 px-2 rounded-full md:rounded-md text-white cursor-pointer"><VscSettings /></span>
@@ -85,7 +85,7 @@ const ParentsPage = () => {
         <TableList key="parent" columns={columns} renderRow={renderParent} data={parentsList} />
       </div>
       <div>
-        <Pagination key="parent" dataLength={parentsList.length} />
+        {/* <Pagination key="parent" dataLength={parentsList.length} /> */}
       </div>
     </div>
   );

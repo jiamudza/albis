@@ -59,7 +59,7 @@ const AddUser = ({ }) => {
                 setMessage("")
 
                 // ✅ kirim data ke backend
-                const response = await axios.post("http://albis-navy.vercel.app/api/users", user, {
+                const response = await axios.post("https://albis-navy.vercel.app/api/users", user, {
                     headers: { "Content-Type": "application/json" },
                     withCredentials: true,
                 })
@@ -188,7 +188,7 @@ const AddUser = ({ }) => {
                                 <div className='flex-1/2'>
                                     <label className='text-xs font-semibold'>Role</label>
                                     <div className='flex items-center gap-3 flex-wrap'>
-                                        {["admin", "guru", "spmb", "siswa", "wali", "walas"].map((r) => (
+                                        {["Admin", "Guru", "SPMB", "Siswa", "Wali", "Walas"].map((r) => (
                                             <div key={r} className='flex justify-start items-center gap-1 mt-2'>
                                                 <input
                                                     type='checkbox'

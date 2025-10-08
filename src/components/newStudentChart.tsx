@@ -9,14 +9,21 @@ import { Cell, Legend, Pie, PieChart } from 'recharts';
 // ];
 const COLORS = ['#f6339a', '#fe9a00', '#6e11b0'];
 
-type Program = {
-    program: string;
-    jumlah: number;
-}
+// type Program = {
+//     program: string;
+//     jumlah: number;
+// }
 
-const NewStudentsChart = ({programSummary} : {programSummary: Program[]}) => {
+const NewStudentsChart = ({programSummary} : {programSummary: any[]}) => {
 
     console.log(programSummary)
+    const program = programSummary
+    .filter(item => item.kategori === "Program")
+    .map(item => ({
+        name: item.sub_kategori,
+        value: item.jumlah
+    }))
+    console.log(program)
 
     return (
         <div className='overflow h-[90vh] relative z-0'>
@@ -30,9 +37,9 @@ const NewStudentsChart = ({programSummary} : {programSummary: Program[]}) => {
                     outerRadius={80}
                     fill="#8884d8"
                     paddingAngle={2}
-                    dataKey="jumlah"
+                    dataKey="value"
                     className='mx-auto'
-                    nameKey='program'
+                    nameKey='name'
                 >
                     {programSummary.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

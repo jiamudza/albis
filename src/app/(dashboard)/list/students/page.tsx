@@ -73,7 +73,7 @@ const StudentPage = () => {
       <div className="border rounded-md bg-white border-slate-300">
         <div className="w-full flex justify-between items-center bg-transparent">
           <div className="w-80 px-3">
-            <Search />
+            {/* <Search /> */}
           </div>
           <div className="flex justify-end items-center gap-3 py-3 px-2 md:px-5 ">
             <span className="flex items-center justify-center md:justify-end gap-2 bg-primary font-bold py-2 px-2 rounded-full md:rounded-md text-white cursor-pointer"><VscSettings /></span>
@@ -86,7 +86,7 @@ const StudentPage = () => {
         <TableList key="student" columns={columns} renderRow={renderStudent} data={studentsList} />
       </div>
       <div>
-        <Pagination dataLength={studentsList.length} />
+        {/* <Pagination dataLength={studentsList.length} /> */}
       </div>
     </div>
   );

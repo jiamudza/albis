@@ -15,8 +15,8 @@ const MasterData = () => {
                 </div>
             </div>
 
-            <div className='flex-1/3'>m</div>
-            <div className='flex-1/3'>r</div>
+            {/* <div className='flex-1/3'>m</div>
+            <div className='flex-1/3'>r</div> */}
         </div>
     </div>
   )

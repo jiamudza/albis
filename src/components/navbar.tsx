@@ -7,7 +7,9 @@ import Search from "./search-bar";
 import { useState, useEffect } from 'react'
 
 interface NavbarProps {
-  user: {role: string, nama_lengkap: string};
+  user: {role: string, nama_lengkap: string, guru: {
+    nama_guru: string
+  }};
   timezone?: string;
 }
 
@@ -86,7 +88,7 @@ const Navbar = ({ user, timezone = Intl.DateTimeFormat().resolvedOptions().timeZ
             className="h-8 w-8 rounded-full object-fill bg-amber-300"
           />
           <div className="hidden md:block">
-            <p className="text-xs lg:text-sm font-medium text-text text-nowrap">{user.nama_lengkap}</p>
+            <p className="text-xs lg:text-sm font-medium text-text text-nowrap max-w-40 truncate">{user.guru.nama_guru}</p>
             <p className="text-xs text-gray-500">{user.role[0]}</p>
           </div>
           <div

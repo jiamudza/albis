@@ -16,6 +16,7 @@ import { BsFillGearFill } from "react-icons/bs";
 import { FaMoneyBill, FaPeopleRoof } from "react-icons/fa6";
 import { MdInventory, MdMeetingRoom, MdAssignment } from "react-icons/md";
 import { IoIosMegaphone } from "react-icons/io";
+import { GiSpellBook } from "react-icons/gi";
 
 interface MenuProps {
   user: { role: string[] }; // ambil minimal role
@@ -34,6 +35,7 @@ const menuItems = [
       { icon: <RiFileList2Fill />, label: "Kehadiran", href: "/attendance" },
       { icon: <FaMoneyBill />, label: "Keuangan", href: "/finance" },
       { icon: <MdInventory />, label: "Inventaris", href: "/inventory" },
+      { icon: <GiSpellBook />, label: "E-Rapor", href: "/rapor" },
       { icon: <RiCalendarScheduleFill />, label: "Agenda", href: "/events" },
       { icon: <IoIosMegaphone />, label: "Pengumuman", href: "/announcements" },
       { icon: <RiAdminFill />, label: "Master", href: "/master" },
@@ -49,10 +51,10 @@ const menuItems = [
 ];
 
 const hiddenItemsByRole: Record<string, string[]> = {
-  guru: ["Keuangan", "Inventaris", "Master"],
-  siswa: ["Guru", "Keuangan", "Inventaris", "Wali", "SPMB", "Master"],
-  wali: ["Siswa", "Keuangan", "Inventaris", "SPMB", "Master"],
-  spmb: ["Keuangan", "Inventaris", "Master"]
+  Guru: ["Keuangan", "Inventaris", "Master"],
+  Siswa: ["Guru", "Keuangan", "Inventaris", "Wali", "SPMB", "Master"],
+  Wali: ["Siswa", "Keuangan", "Inventaris", "SPMB", "Master"],
+  SPMB: ["Keuangan", "Inventaris", "Master"]
 };
 
 
@@ -67,7 +69,7 @@ const Menu = ({ user }: MenuProps) => {
   const handleLogout = async () => {
     try {
       // panggil endpoint logout di server
-      await axios.post("http://localhost:5000/api/logout", {}, { withCredentials: true });
+      await axios.post("https://albis-navy.vercel.app/api/logout", {}, { withCredentials: true });
 
       // hapus user dari context
       // setUser(null);
@@ -107,7 +109,7 @@ const Menu = ({ user }: MenuProps) => {
             // cek role, sembunyikan menu jika user role ada di hiddenItemsByRole
             if (
               Array.isArray(userRole) &&
-              !userRole.includes("admin") && // admin selalu bisa lihat semua menu
+              !userRole.includes("Admin") && // admin selalu bisa lihat semua menu
               userRole.some(role => hiddenItemsByRole[role]?.includes(item.label))
             ) {
               return null;

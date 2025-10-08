@@ -3,12 +3,10 @@ import Navbar from "@/components/navbar";
 import { getUserFromCookie } from "@/lib/getUser";
 import { redirect } from "next/navigation";
 
-export const metadata = { title: "Dashboard" };
+export const metadata = { title: "Albis (Dashboard)" };
 
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   const user = await getUserFromCookie();
-  console.log(getUserFromCookie())
-
   if (!user) redirect("/login"); // kalau belum login, redirect ke login
 
   return (

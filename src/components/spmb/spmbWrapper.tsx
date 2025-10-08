@@ -1,10 +1,8 @@
 'use client'
-import React, { ReactNode, useEffect, useState } from 'react'
-import { useNewStudent } from '@/lib/dataFetch'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import NewStudentsTable from '@/components/newStudentTable'
 import NewStudentsChart from '../newStudentChart'
-import axios from 'axios'
-
 
 const tab = [
     {
@@ -30,12 +28,15 @@ const tab = [
 ]
 
 const SpmbWrapper = () => {
-
     const [filter, setFilter] = useState({
         search: "",
+        page: 1,
     })
 
-    const  [debounceSearch, setDebounceSearch] = useState(filter.search)
+    const [debounceSearch, setDebounceSearch] = useState(filter.search)
+    const [loading, setLoading] = useState(true)
+    const [tabActive, setTabActive] = useState("data")
+
     type DataResponse = {
         page: number
         total: number
@@ -43,140 +44,174 @@ const SpmbWrapper = () => {
         hasNextPage: boolean
         hasPrevPage: boolean
         limit: number
-        data: any[]
-        summary: [{
-            program: string;
+        data: any[],
+        summary: {
+            kategori: string,
+            sub_kategori: string
             jumlah: number
-        }]
+        }[]
     }
 
-    const [loading, setLoading] = useState(true)
-
     const [data, setData] = useState<DataResponse>({
-        page: 0,
+        page: 1,
         total: 0,
         totalPages: 0,
         hasNextPage: false,
         hasPrevPage: false,
-        limit: 0,
+        limit: 10,
         data: [],
         summary: [{
-            program: "",
+            kategori: "",
+            sub_kategori: "",
             jumlah: 0,
         }]
     })
 
-    const [studentDetail, setStudentDetail] = useState(false)
-    // const { data, error, isLoading, hasNextPage, hasPrevPage, page, total, totalPages, limit } = await useNewStudent(filter.search)
-
+    // === Debounce input search ===
     useEffect(() => {
-
         const handler = setTimeout(() => {
             setDebounceSearch(filter.search)
         }, 500)
-
-        return () => clearTimeout(handler);
-
-        
-
+        return () => clearTimeout(handler)
     }, [filter.search])
 
+    // === Fetch data setiap kali search atau page berubah ===
     useEffect(() => {
         setLoading(true)
-
-        axios.get(`https://albis-navy.vercel.app/api/getNewStudents?search=${filter.search}`, {withCredentials: true})
+        axios.get(`https://albis-navy.vercel.app/api/getNewStudents?search=${debounceSearch}&page=${filter.page}&limit=10`, { withCredentials: true })
             .then(res => {
                 setData(res.data)
             })
             .finally(() => setLoading(false))
-        
-    }, [debounceSearch])
+    }, [debounceSearch, filter.page])
 
-    type dataOfPage = {
+    // === handle pagination ===
+    const handlePageChange = (page: number) => {
+        setFilter(prev => ({
+            ...prev,
+            page
+        }))
+    }
+
+    // === handle search ===
+    const handleSearch = (value: string) => {
+        setFilter(prev => ({
+            ...prev,
+            search: value,
+            page: 1, // reset ke halaman pertama saat melakukan pencarian
+        }))
+    }
+
+    // === data paging summary ===
+    type DataOfPage = {
         page: number;
         total: number;
         totalPages: number;
         hasNextPage: boolean;
         hasPrevPage: boolean;
         limit: number;
-        dataLength: number
+        dataLength: number;
     }
-    const pageData: dataOfPage = {
+
+    const pageData: DataOfPage = {
         page: data.page,
         total: data.total,
         totalPages: data.totalPages,
         hasNextPage: data.hasNextPage,
         hasPrevPage: data.hasPrevPage,
         limit: data.limit,
-        dataLength: data.data.length
+        dataLength: data.data.length,
     }
 
-    const [tabActive, setTabActive] = useState("data")
-
-    const handleSearch = (value: string) => {
-
-        setFilter(prev => ({
-            ...prev,
-            search: value
+    const student = data.data
+    const programSummary = data.summary
+    const program = programSummary
+        .filter(item => item.kategori === "Program")
+        .map(item => ({
+            name: item.sub_kategori,
+            value: item.jumlah
         }))
-    }
-
-    const student = data.data;
-    const programSummary = data.summary;
+    const gender = programSummary
+        .filter(item => item.kategori === "Jenis Kelamin")
+        .map(item => ({
+            name: item.sub_kategori,
+            value: item.jumlah
+        }))
+    const statusPembayaran = programSummary
+        .filter(item => item.kategori === "Status Pembayaran")
+        .map(item => ({
+            name: item.sub_kategori,
+            value: item.jumlah
+        }))
+    
 
     const component = () => {
-        // DATA
-        if (tabActive === "data")
+        if (tabActive === "data") {
+            return (
+                <NewStudentsTable
+                    data={student}
+                    pageData={pageData}
+                    filter={handleSearch}
+                    loading={loading}
+                    onPageChange={handlePageChange} // ✅ kirim handler pagination
+                />
+            )
+        }
 
-            return <NewStudentsTable data={student} pageData={pageData} filter={handleSearch} loading={loading}/>
-        // return <div></div>
-        // Persentase
-        if (tabActive === "persentase")
-            return <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
-                <div className='h-1 w-full bg-pink-300  rounded-tr-md'></div>
-                <div className='flex flex-col md:flex-row'>
-                    <div className='flex-1/2'>
-                        <NewStudentsChart programSummary={programSummary} />
+        if (tabActive === "persentase") {
+            return (
+                <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300 h-80'>
+                    <div className='h-1 w-full bg-pink-300 rounded-tr-md'></div>
+                    <div className='flex flex-col md:flex-row justify-center'>
+                        <div className='flex-1/3'>
+                            <NewStudentsChart key="program" programSummary={program} />
+                        </div>
+                        <div className='flex-1/3'>
+                            <NewStudentsChart key="gender" programSummary={gender} />
+                        </div>
+                        <div className='flex-1/3'>
+                            <NewStudentsChart key="status" programSummary={statusPembayaran} />
+                        </div>
                     </div>
                 </div>
-            </div>
-            // Anggaran
-        if (tabActive === "anggaran")
-            return <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
-                <div className='h-1 w-full bg-amber-300 rounded-tr-md'></div>
-                <p className='p-4'>Anggaran</p></div>
-            // Sosialisasi
-        return <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
-            <div className='h-1 w-full bg-blue-300 rounded-tr-md'></div>
-            <p className='p-4'>Sosialisasi</p></div>
-    }
+            )
+        }
 
+        if (tabActive === "anggaran") {
+            return (
+                <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
+                    <div className='h-1 w-full bg-amber-300 rounded-tr-md'></div>
+                    <p className='p-4'>Anggaran</p>
+                </div>
+            )
+        }
+
+        return (
+            <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
+                <div className='h-1 w-full bg-blue-300 rounded-tr-md'></div>
+                <p className='p-4'>Sosialisasi</p>
+            </div>
+        )
+    }
 
     return (
         <div className=''>
-
             <div className='flex flex-col lg:flex-row'>
-                {/* left */}
-                <div className='flex-2/3' >
+                <div className='flex-2/3'>
                     <h3 className='font-bold text-lg text-primary'>Sistem Penerimaan Murid Baru (SPMB)</h3>
                     <div className='flex mt-2'>
-
                         {tab.map(t => (
-                            <div onClick={() => {
-                                setTabActive(t.key)
-                            }} key={t.key} className={`${t.className} cursor-pointer text-center transition-all ease-in-out duration-200 ${tabActive === t.key ? "z-40" : ""}`}>
+                            <div
+                                key={t.key}
+                                onClick={() => setTabActive(t.key)}
+                                className={`${t.className} cursor-pointer text-center transition-all ease-in-out duration-200 ${tabActive === t.key ? "z-40" : ""}`}
+                            >
                                 <p>{t.Label}</p>
                             </div>
                         ))}
                     </div>
-                    <div>
 
-                        {component()}
-
-                    </div>
-
-
-
+                    <div>{component()}</div>
                 </div>
             </div>
         </div>

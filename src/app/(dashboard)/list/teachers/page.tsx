@@ -72,7 +72,7 @@ const TeacherPage = () => {
       <div className="border rounded-md border-slate-300">
         <div className="w-full flex justify-between items-center bg-transparent">
           <div className="w-80 px-3">
-            <Search />
+            {/* <Search /> */}
           </div>
           <div className="flex justify-end items-center py-3 gap-3 px-2 md:px-5 ">
             <span className="flex items-center justify-center md:justify-end gap-2 rounded-full bg-primary font-bold py-2 px-2 md:rounded-md text-white cursor-pointer"><VscSettings /></span>
@@ -83,9 +83,9 @@ const TeacherPage = () => {
           </div>
         </div>
         <TableList key="teacher" columns={columns} renderRow={renderRow} data={teachers} /></div>
-      <div>
+      {/* <div>
         <Pagination dataLength={teachers.length} />
-      </div>
+      </div> */}
     </div>
   );
 };
