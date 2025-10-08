@@ -78,7 +78,7 @@ const SpmbWrapper = () => {
     // === Fetch data setiap kali search atau page berubah ===
     useEffect(() => {
         setLoading(true)
-        axios.get(`https://albis-navy.vercel.app/api/getNewStudents?search=${debounceSearch}&page=${filter.page}&limit=10`, { withCredentials: true })
+        axios.get(`/api/getNewStudents?search=${debounceSearch}&page=${filter.page}&limit=10`, { withCredentials: true })
             .then(res => {
                 setData(res.data)
             })
