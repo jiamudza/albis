@@ -8,7 +8,7 @@ const SpmbNotifCard = () => {
     const [data, setData] = useState<Partial<any>[]>([])
 
     useEffect( () => {
-        axios.get(`https://albis-navy.vercel.app/api/getNewStudents?limit=5`, {
+        axios.get(`/api/getNewStudents?limit=5`, {
             withCredentials: true
         })
         .then(res => {

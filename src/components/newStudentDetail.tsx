@@ -53,10 +53,10 @@ const NewStudentDetail = ({ handleDetail, id, detail }: { handleDetail: () => vo
     const [refreshLoading, setRefreshLoading] = useState(false)
     const [data, setData] = useState<Student | null>(null); // ← ini benar
 
-    const url = `https://albis-navy.vercel.app/api/getNewStudents/${id}`
+    const url = `/api/getNewStudents/${id}`
 
     const handlePaymentStatus = () => {
-        axios.patch(`https://albis-navy.vercel.app/api/${data ? data.id : "000"}/togglePayment`)
+        axios.patch(`/api/${data ? data.id : "000"}/togglePayment`)
             .then(() => {
                 setRefreshLoading(true);
                 setRefresh(!refresh);

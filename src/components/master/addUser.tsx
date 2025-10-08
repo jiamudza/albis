@@ -60,7 +60,7 @@ const AddUser = ({ }) => {
 
                 // ✅ kirim data ke backend
                 const response = await axios.post(
-                    "https://albis-navy.vercel.app/api/users",
+                    "/api/users",
                     user,
                     {
                         headers: { "Content-Type": "application/json" },
