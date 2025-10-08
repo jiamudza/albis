@@ -8,7 +8,7 @@ export const getUserFromCookie = async() => {
   if (!token) return null;
 
   try {
-    const res = await axios.get("/api/profile", {
+    const res = await axios.get("https://albis-navy.vercel.app/api/profile", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
