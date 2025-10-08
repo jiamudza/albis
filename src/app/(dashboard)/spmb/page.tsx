@@ -1,6 +1,6 @@
 import React from 'react'
-import { useNewStudent } from '@/lib/dataFetch'
-import NewStudentsTable from '@/components/newStudentTable'
+// import { useNewStudent } from '@/lib/dataFetch'
+// import NewStudentsTable from '@/components/newStudentTable'
 import SpmbWrapper from '@/components/spmb/spmbWrapper'
 
 const tab = [

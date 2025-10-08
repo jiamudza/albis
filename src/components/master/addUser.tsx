@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import axios from 'axios' // ✅ tambahkan import axios
+import axios, { AxiosError } from 'axios' // ✅ tambahkan import axios
 
 interface User {
     username: string,
@@ -55,32 +55,41 @@ const AddUser = ({ }) => {
 
         if (isValid) {
             try {
-                setLoading(true)
-                setMessage("")
+                setLoading(true);
+                setMessage("");
 
                 // ✅ kirim data ke backend
-                const response = await axios.post("https://albis-navy.vercel.app/api/users", user, {
-                    headers: { "Content-Type": "application/json" },
-                    withCredentials: true,
-                })
+                const response = await axios.post(
+                    "https://albis-navy.vercel.app/api/users",
+                    user,
+                    {
+                        headers: { "Content-Type": "application/json" },
+                        withCredentials: true,
+                    }
+                );
 
-                setMessage(response.data.message || "User berhasil ditambahkan ✅")
-                alert("User berhasil ditambahkan")
-                setAddUser(false)
+                setMessage(response.data.message || "User berhasil ditambahkan ✅");
+                alert("User berhasil ditambahkan");
+                setAddUser(false);
                 setUser({
                     username: "",
                     password: "",
                     id_role: "",
                     role: []
-                })
-                localStorage.removeItem('addUser')
-            } catch (error: any) {
-                console.error(error)
-                setMessage(error.response?.data?.error || "Gagal menambahkan user ❌")
-                alert("Gagal menambahkan user!")
+                });
+                localStorage.removeItem('addUser');
+
+            } catch (err: unknown) {
+                // cast ke AxiosError dengan tipe data { error: string }
+                const axiosErr = err as AxiosError<{ error: string }>;
+
+                console.error(axiosErr);
+                setMessage(axiosErr.response?.data?.error || "Gagal menambahkan user ❌");
+                alert("Gagal menambahkan user!");
             } finally {
-                setLoading(false)
+                setLoading(false);
             }
+
         }
     }
 

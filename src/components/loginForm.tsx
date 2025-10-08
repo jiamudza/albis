@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '../../public/logo.png';
 import { useRouter } from 'next/navigation';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useAuth } from '@/context/AuthContext';
 
 interface LoginData {
@@ -27,7 +27,7 @@ const LoginForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    let newErrors = { username: '', password: '', general: '' };
+    const newErrors = { username: '', password: '', general: '' };
     let isValid = true;
     if (!loginData.username.trim()) { newErrors.username = 'Username wajib diisi'; isValid = false; }
     if (!loginData.password.trim()) { newErrors.password = 'Password wajib diisi'; isValid = false; }
@@ -44,9 +44,17 @@ const LoginForm = () => {
 
       setUser(res.data.user); // simpan user di context
       router.push('/spmb');
-    } catch (err: any) {
-      console.error(err.response?.data || err);
-      setErrors(prev => ({ ...prev, general: err.response?.data?.error || 'Login gagal' }));
+    } catch (err: unknown) {
+      // cast err ke AxiosError dengan tipe data { error: string }
+      const axiosErr = err as AxiosError<{ error: string }>;
+
+      setErrors(prev => ({
+        ...prev,
+        general: axiosErr.response?.data?.error || 'Login gagal'
+      }));
+
+      // optional: log error lengkap
+      console.error(axiosErr.response?.data || axiosErr);
     } finally {
       setLoading(false);
     }

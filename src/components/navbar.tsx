@@ -3,7 +3,7 @@ import React from "react";
 import { RiNotificationBadgeFill, RiMessage2Fill, RiArrowDownWideLine, RiArrowUpWideLine } from "react-icons/ri";
 import avatar from '@/assets/images/placeholder/avatar.svg';
 import Image from "next/image";
-import Search from "./search-bar";
+// import Search from "./search-bar";
 import { useState, useEffect } from 'react'
 
 interface NavbarProps {
@@ -17,7 +17,7 @@ interface NavbarProps {
 
 const Navbar = ({ user, timezone = Intl.DateTimeFormat().resolvedOptions().timeZone }: NavbarProps) => {
   const [open, setOpen] = useState(false);
-  const date = new Date()
+  // const date = new Date()
   const [now, setNow] = useState(() => new Date())
   const [is24h, setIs24h] = useState(true)
 

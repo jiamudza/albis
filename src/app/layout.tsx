@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Rubik, Poppins } from "next/font/google";
+// import type { Metadata } from "next";
+import { Rubik, Poppins } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 
-const rubik = Rubik({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-rubik"
-})
+// const rubik = Rubik({
+//   subsets: ["latin"],
+//   weight: ["300", "400", "500", "600", "700", "800"],
+//   variable: "--font-rubik"
+// })
 
 const poppins = Poppins({
   subsets: ["latin"],

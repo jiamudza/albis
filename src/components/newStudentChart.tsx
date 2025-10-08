@@ -9,19 +9,20 @@ import { Cell, Legend, Pie, PieChart } from 'recharts';
 // ];
 const COLORS = ['#f6339a', '#fe9a00', '#6e11b0'];
 
-// type Program = {
-//     program: string;
-//     jumlah: number;
-// }
+type Program = {
+    kategori:string
+    name: string;
+    value: number;
+}[]
 
-const NewStudentsChart = ({programSummary} : {programSummary: any[]}) => {
+const NewStudentsChart = ({programSummary} : {programSummary: Program}) => {
 
     console.log(programSummary)
     const program = programSummary
     .filter(item => item.kategori === "Program")
     .map(item => ({
-        name: item.sub_kategori,
-        value: item.jumlah
+        name: item.name,
+        value: item.value
     }))
     console.log(program)
 

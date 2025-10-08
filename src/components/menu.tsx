@@ -4,12 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import logo from "../../public/logo.png";
-import { useAuth } from "@/context/AuthContext";
-import axios from "axios";
+// import { useAuth } from "@/context/AuthContext";
+import axios, { AxiosError } from "axios";
 
 // icon imports
 import {
-  RiHome5Fill, RiQrCodeFill, RiCalendarScheduleFill, RiFileList2Fill, RiLogoutBoxFill, RiMessage2Fill, RiAdminFill
+  RiHome5Fill, RiCalendarScheduleFill, RiFileList2Fill, RiLogoutBoxFill, RiAdminFill
 } from "react-icons/ri";
 import { HiUser, HiUserGroup } from "react-icons/hi2";
 import { BsFillGearFill } from "react-icons/bs";
@@ -68,20 +68,25 @@ const Menu = ({ user }: MenuProps) => {
 
   const handleLogout = async () => {
     try {
-      // panggil endpoint logout di server
-      await axios.post("https://albis-navy.vercel.app/api/logout", {}, { withCredentials: true });
+  // panggil endpoint logout di server
+  await axios.post("https://albis-navy.vercel.app/api/logout", {}, { withCredentials: true });
 
-      // hapus user dari context
-      // setUser(null);
+  // hapus user dari context
+  // setUser(null);
 
-      // redirect ke login
-      router.push("/login");
-    } catch (err: any) {
-      console.error("Logout gagal:", err.response?.data || err);
-      // tetap hapus user dari context agar UI clear
-      // setUser(null);
-      router.push("/login");
-    }
+  // redirect ke login
+  router.push("/login");
+} catch (err: unknown) {
+  // cast err ke AxiosError
+  const axiosErr = err as AxiosError;
+
+  console.error("Logout gagal:", axiosErr.response?.data || axiosErr);
+
+  // tetap hapus user dari context agar UI clear
+  // setUser(null);
+
+  router.push("/login");
+}
   };
 
 

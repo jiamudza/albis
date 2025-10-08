@@ -128,18 +128,23 @@ const SpmbWrapper = () => {
     const program = programSummary
         .filter(item => item.kategori === "Program")
         .map(item => ({
+            kategori: item.kategori,
             name: item.sub_kategori,
             value: item.jumlah
         }))
+        
     const gender = programSummary
         .filter(item => item.kategori === "Jenis Kelamin")
         .map(item => ({
+            kategori: item.kategori,
             name: item.sub_kategori,
             value: item.jumlah
         }))
+
     const statusPembayaran = programSummary
         .filter(item => item.kategori === "Status Pembayaran")
         .map(item => ({
+            kategori: item.kategori,
             name: item.sub_kategori,
             value: item.jumlah
         }))
