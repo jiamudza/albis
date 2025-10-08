@@ -117,7 +117,7 @@ const Menu = ({ user }: MenuProps) => {
                   onClick={handleLogout}
                   className={
                     (sideBar ? "lg:justify-start items-center lg:h-7 xl:h-8" : "justify-center items-center lg:h-7 xl:h-8") +
-                    " text-xs xl:text-xs flex justify-center lg:gap-4 text-center py-2 xl:px-2 transition-all ease-in-out duration-200 hover:bg-[#ecebc391] w-full"
+                    " text-xs xl:text-xs flex justify-center lg:gap-4 text-center py-2 xl:px-2 transition-all ease-in-out duration-200 hover:bg-[#ecebc391] w-full cursor-pointer"
                   }
                 >
                   <span className={(sideBar ? "lg:px-[0.689rem] " : "") + "text-lg md:text-lg lg:text-xs xl:text-[15px] text-center transition-none"}>

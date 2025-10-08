@@ -21,9 +21,9 @@ type DataCount = {
 }
 
 const columns = [
-  { key: 'calon_siswa', label: 'Nama', className: 'py-2 px-4 w-1/3 md:w-2/8' },
+  { key: 'calon_siswa', label: 'Nama', className: 'py-2 px-4 w-1/4 md:w-2/8' },
   { key: 'masa_pendaftaran', label: 'Fase', className: 'hidden md:table-cell w-1/8 text-center' },
-  { key: 'pilihan_program', label: 'Program', className: 'w-1/3 md:w-1/7 text-center' },
+  { key: 'pilihan_program', label: 'Program', className: 'w-2/3 md:w-1/7 text-center' },
   { key: 'asal_sekolah', label: 'Asal Sekolah', className: 'hidden md:table-cell w-1/8' },
   { key: 'pembayaran', label: 'Pembayaran', className: 'hidden md:table-cell w-1/8 text-center' },
   { key: 'metode_pembayaran', label: 'Metode', className: 'hidden text-center md:table-cell w-1/8' },
@@ -72,7 +72,7 @@ const NewStudentsTable = ({
           className="rounded-full object-cover"
         />
         <div className="flex flex-col min-w-0">
-          <span className="font-semibold whitespace-nowrap truncate">{item.nama_lengkap}</span>
+          <span className="font-semibold w-22 md:w-full whitespace-nowrap truncate">{item.nama_lengkap}</span>
           <span className="hidden md:block text-[10px] whitespace-nowrap truncate">
             {item.email === '' ? '-' : item.email}
           </span>
@@ -80,13 +80,13 @@ const NewStudentsTable = ({
       </td>
 
       <td className="hidden md:table-cell text-center">{item.fase || '-'}</td>
-      <td className="text-center">{item.pilihan_program || '-'}</td>
+      <td className="text-center px-5">{item.pilihan_program || '-'}</td>
       <td className="hidden md:table-cell truncate">{item.asal_sekolah || '-'}</td>
       <td className="hidden md:table-cell text-center">{item.status_pembayaran || '-'}</td>
       <td className="hidden md:table-cell text-center">{item.metode_bayar || '-'}</td>
 
       <td className="">
-        <div className="flex items-center justify-center gap-3">
+        <div className="flex items-center justify-start md:justify-center gap-1 md:gap-3 px-2 lg:px-1">
           <abbr
             title="Detail"
             className="bg-accent rounded-full hover:bg-primary cursor-pointer"
