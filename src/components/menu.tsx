@@ -70,22 +70,10 @@ const Menu = ({ user }: MenuProps) => {
     try {
   // panggil endpoint logout di server
   await axios.post("https://albis-navy.vercel.app/api/logout", {}, { withCredentials: true });
-
-  // hapus user dari context
-  // setUser(null);
-
-  // redirect ke login
   router.push("/login");
-} catch (err: unknown) {
+} catch (err: any) {
   // cast err ke AxiosError
-  const axiosErr = err as AxiosError;
-
-  console.error("Logout gagal:", axiosErr.response?.data || axiosErr);
-
-  // tetap hapus user dari context agar UI clear
-  // setUser(null);
-
-  router.push("/login");
+  console.log("Logout gagal:", err.response?.data);
 }
   };
 
