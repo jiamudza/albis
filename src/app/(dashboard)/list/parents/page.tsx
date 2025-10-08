@@ -5,7 +5,7 @@ import Link from "next/link";
 // import Search from "@/components/search-bar";
 // import Image from "next/image";
 // import Pagination from "@/components/pagination";
-import { VscSettings, VscAdd } from "react-icons/vsc";
+import { VscSettings } from "react-icons/vsc";
 import { MdOutlineAdd, MdOutlineDelete } from "react-icons/md";
 import { TbListDetails } from "react-icons/tb";
 
