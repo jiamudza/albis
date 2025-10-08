@@ -37,7 +37,7 @@ const LoginForm = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        'https://albis-navy.vercel.app/api/login',
+        '/api/login',
         loginData,
         { withCredentials: true }
       );
