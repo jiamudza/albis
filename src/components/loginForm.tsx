@@ -42,19 +42,18 @@ const LoginForm = () => {
         { withCredentials: true }
       );
 
-      setUser(res.data.user); // simpan user di context
-      router.push('/spmb');
-    } catch (err: unknown) {
-      // cast err ke AxiosError dengan tipe data { error: string }
-      const axiosErr = err as AxiosError<{ error: string }>;
+      setUser(res.data.user);
+      // setTimeout(() => router.push('/spmb'), 300);
+
+    } catch (err: any) {
 
       setErrors(prev => ({
         ...prev,
-        general: axiosErr.response?.data?.error || 'Login gagal'
+        general: err.response?.data?.error || 'Login gagal'
       }));
 
       // optional: log error lengkap
-      console.error(axiosErr.response?.data || axiosErr);
+      console.error(err.response?.data);
     } finally {
       setLoading(false);
     }
