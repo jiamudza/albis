@@ -10,6 +10,7 @@ import { MdOutlineDelete } from 'react-icons/md'
 import { VscSettings } from 'react-icons/vsc'
 import NewStudentDetail from './newStudentDetail'
 import axios from 'axios'
+import { RiRefreshLine } from 'react-icons/ri'
 
 type DataCount = {
   page: number
@@ -37,12 +38,14 @@ const NewStudentsTable = ({
   filter,
   loading,
   onPageChange, // ✅ tambahkan prop
+  refresh
 }: {
   data: any[]
   pageData: DataCount
   filter: (value: string) => void
   loading: boolean
   onPageChange: (page: number) => void
+  refresh: () => void
 }) => {
   const [id, setId] = useState<string>('')
   const [detail, setDetail] = useState(false)
@@ -52,22 +55,23 @@ const NewStudentsTable = ({
     setId(id)
     setDetail(true)
   }
+  const [rotate, setRotate] = useState(false);
 
   const api = axios.create({
-  baseURL: "http://localhost:5000/api",
-  withCredentials: true, //
-});
+    baseURL: "http://localhost:5000/api",
+    withCredentials: true, //
+  });
 
-const deleteStudent = async (id: string) => {
-  try {
-    const response = await api.delete(`/newStudents/${id}`);
-    console.log(response.data.message);
-    alert("Data berhasil dihapus!");
-  } catch (error: any) {
-    console.error("Gagal menghapus data:", error.response?.data || error.message);
-    alert("Terjadi kesalahan saat menghapus data.");
-  }
-};
+  const deleteStudent = async (id: string) => {
+    try {
+      const response = await api.delete(`/newStudents/${id}`);
+      console.log(response.data.message);
+      alert("Data berhasil dihapus!");
+    } catch (error: any) {
+      console.error("Gagal menghapus data:", error.response?.data || error.message);
+      alert("Terjadi kesalahan saat menghapus data.");
+    }
+  };
 
   const renderNewStudent = (item: newStudent) => (
     <tr
@@ -140,6 +144,10 @@ const deleteStudent = async (id: string) => {
             <span className="flex items-center justify-center md:justify-end gap-2 bg-primary font-bold py-2 px-2 rounded-full md:rounded-md text-white cursor-pointer">
               <VscSettings />
             </span>
+            <div onClick={() => {
+              refresh()
+              setRotate(!rotate)
+            }} className={`text-xs font-semibold text-right text-primary cursor-pointer  hover:bg-white hover:border-primary p-2 rounded-md transition-all ease-in-out duration-1000 ${rotate ? "rotate-1000" : "rotate-0"}`}><RiRefreshLine size={15} className={``} /></div>
           </div>
         </div>
 

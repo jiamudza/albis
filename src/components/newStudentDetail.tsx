@@ -79,16 +79,39 @@ const NewStudentDetail = ({ handleDetail, id, detail }: { handleDetail: () => vo
     }, [refresh])
 
 
+    const backgrounds:string[] = [
+        "/background/profile-bg.jfif",
+        "/background/profile-bg-2.jfif",
+        "/background/profile-bg-3.jfif",
+        "/background/profile-bg-4.jfif",
+        "/background/profile-bg-5.jfif",
+        "/background/profile-bg-6.jfif",
+        "/background/profile-bg-7.jfif",
+        "/background/profile-bg-8.jfif",
+        "/background/profile-bg-9.jfif",
+        "/background/profile-bg-10.jfif",
+        "/background/profile-bg-11.jfif",
+        "/background/profile-bg-12.jfif",
+        "/background/profile-bg-13.jfif",
+        "/background/profile-bg-14.jfif",
+        "/background/profile-bg-15.jfif",
+        "/background/profile-bg-16.jfif",
+        "/background/profile-bg-17.jfif",
+        "/background/profile-bg.jpg",
+
+    ]
+    const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
     return (
         <div className='w-full bg-white rounded-md rounded-tl-none transition-all ease-in-out duration-200 border border-b-3 border-b-third border-slate-300 border-t-0 z-20'>
             <div onClick={handleDetail} className='bg-red-400 h-6 w-6 rounded-tr-md rounded-bl-md absolute right-0 top-0 font-semibold text-center text-white cursor-pointer'>x</div>
 
-            {!data ? <div className='font-bold text-slate-400 h-[30vh] w-full rounded-md text-center align-text-bottom relative z-10'><span className='absolute-center'>Loading...</span></div> :
+            {!data ? <div className='font-bold text-slate-400 h-[30vh] w-full rounded-md text-center align-text-bottom relative z-10'><span className='absolute-center font-bold'>Loading...</span></div> :
                 <div className='flex flex-col md:flex-row gap-2 px-4 py-5'>
                     <div className='flex-1/3'>
                         <div className='p-4 rounded-md'
                             style={{
-                                backgroundImage: `url('/background/profile-bg.jpg')`,
+                                backgroundImage: `url('${randomBg}')`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
                                 backgroundRepeat: "no-repeat",
@@ -97,7 +120,7 @@ const NewStudentDetail = ({ handleDetail, id, detail }: { handleDetail: () => vo
                             {/* main profile */}
                             <div className='p-2 relative z-0 bg-white/10 border border-white/20 backdrop-blur-xs rounded-md '>
                                 <div className='flex justify-start items-center gap-3'>
-                                    <Image src="https://avatar.iran.liara.run/public/12" alt="" width={50} height={50} className='rounded-full ' />
+                                    <Image src={`${data.foto_kecil ? data.foto_kecil : "https://avatar.iran.liara.run/public/15"}`} alt="" width={50} height={50} className='rounded-full ' />
                                     <div>
                                         <p className='text-sm font-semibold'>{data.nama_lengkap}</p>
                                         <p className='text-[10px] md:text-xs italic'>{data.nama_panggilan}</p>
