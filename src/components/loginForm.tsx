@@ -37,13 +37,13 @@ const LoginForm = () => {
     setLoading(true);
     try {
       const res = await axios.post(
-        '/api/login',
+        'http://localhost:5000/api/login',
         loginData,
         { withCredentials: true }
       );
 
       setUser(res.data.user);
-      router.push('/spmb')
+      window.location.href = "/spmb"
 
     } catch (err: any) {
 

@@ -9,6 +9,7 @@ import { TbListDetails } from 'react-icons/tb'
 import { MdOutlineDelete } from 'react-icons/md'
 import { VscSettings } from 'react-icons/vsc'
 import NewStudentDetail from './newStudentDetail'
+import axios from 'axios'
 
 type DataCount = {
   page: number
@@ -52,7 +53,21 @@ const NewStudentsTable = ({
     setDetail(true)
   }
 
-  console.log(data)
+  const api = axios.create({
+  baseURL: "http://localhost:5000/api",
+  withCredentials: true, //
+});
+
+const deleteStudent = async (id: string) => {
+  try {
+    const response = await api.delete(`/newStudents/${id}`);
+    console.log(response.data.message);
+    alert("Data berhasil dihapus!");
+  } catch (error: any) {
+    console.error("Gagal menghapus data:", error.response?.data || error.message);
+    alert("Terjadi kesalahan saat menghapus data.");
+  }
+};
 
   const renderNewStudent = (item: newStudent) => (
     <tr
@@ -95,7 +110,7 @@ const NewStudentsTable = ({
             <TbListDetails size={22} className="p-1 rounded-full text-white" />
           </abbr>
           {role === 'admin' && (
-            <abbr title="Hapus" className="cursor-pointer bg-red-300 rounded-full hover:bg-red-400">
+            <abbr onClick={() => deleteStudent(item.id)} title="Hapus" className="cursor-pointer bg-red-300 rounded-full hover:bg-red-400">
               <MdOutlineDelete size={22} className="p-1 rounded-full text-white" />
             </abbr>
           )}
