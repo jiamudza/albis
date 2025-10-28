@@ -56,9 +56,9 @@ const NewStudentsChart = ({ programSummary }: { programSummary: Program }) => {
                 <div>
                     <div className='flex-1/3 flex justify-start items-center gap-1'>
                         <div className='w-2 h-2 bg-amber-500 rounded-full'></div>
-                        <p className='text-xs font-semibold text-amber-500'>Reguler ({program[2].value})</p>
+                        <p className='text-xs font-semibold text-amber-500'>Reguler ({program[1].value})</p>
                     </div>
-                    <p className='text-xs text-center text-amber-600'>{`${(program[2].value / dataLength * 100).toFixed(0)}%`}</p>
+                    <p className='text-xs text-center text-amber-600'>{`${(program[1].value / dataLength * 100).toFixed(0)}%`}</p>
                 </div>
                 
                 <div>
@@ -66,7 +66,7 @@ const NewStudentsChart = ({ programSummary }: { programSummary: Program }) => {
                         <div className='w-2 h-2 bg-primary rounded-full'></div>
                         <p className='text-xs font-semibold text-primary'>Prestasi ({program[2].value})</p>
                     </div>
-                    <p className='text-xs text-center text-purple-800'>{`${(program[1].value / dataLength * 100).toFixed(0)}%`}</p>
+                    <p className='text-xs text-center text-purple-800'>{`${(program[2].value / dataLength * 100).toFixed(0)}%`}</p>
                 </div>
 
                 <div>

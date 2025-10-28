@@ -18,12 +18,9 @@ const NewStudentChartWrapper = ({ program, gender, pembayaran }: { program: Prog
                 <NewStudentGenderChart gender={gender} />
             </div>
 
-            <div className='mt-10 flex flex-col md:flex-row gap-2'>
+            <div className='mt-3 flex flex-col md:flex-row gap-2'>
                 <NewStudentPaymentChart />
                 <NewStudentsRegistChart pembayaran={pembayaran} />
-                {/* <NewStudentsChart programSummary={program} /> */}
-
-                {/* <NewStudentPaymentChart /> */}
             </div>
         </div>
     )

@@ -5,6 +5,7 @@ import NewStudentsTable from '@/components/newStudentTable'
 import NewStudentsChart from '../newStudentChart'
 import NewStudentChartWrapper from './chartWrapper/chartWrapper'
 import { RiRefreshLine } from 'react-icons/ri'
+import SmpbFinance from './anggaranSpmb/SmpbFinance'
 
 const tab = [
     {
@@ -185,7 +186,7 @@ const SpmbWrapper = () => {
             return (
                 <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
                     <div className='h-1 w-full bg-amber-300 rounded-tr-md'></div>
-                    <p className='p-4'>Anggaran</p>
+                    <SmpbFinance />
                 </div>
             )
         }

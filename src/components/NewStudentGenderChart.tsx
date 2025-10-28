@@ -66,7 +66,7 @@ const NewStudentGenderChart = ({gender} : {gender: Program}) => {
             <div className='flex flex-col md:flex-row justify-center gap-5 pb-3 pt-1'>
                 {/* laki laki */}
                 <div>
-                    <div className='flex justify-center items-center gap-3'>
+                    <div className='flex justify-center items-center gap-1'>
                         <div className='h-2 w-2 rounded-full bg-primary'></div>
                         <div className='text-xs flex gap-1 text-primary font-semibold'>
                             <span className=' text-nowrap'>Laki-laki</span>
@@ -77,7 +77,7 @@ const NewStudentGenderChart = ({gender} : {gender: Program}) => {
                 </div>
                 {/* Perempuan */}
                 <div>
-                    <div className='flex justify-center items-center gap-3'>
+                    <div className='flex justify-center items-center gap-1'>
                         <div className='h-2 w-2 rounded-full bg-amber-400'></div>
                         <div className='text-xs md:text[12px] flex gap-1 text-amber-400 font-semibold'>
                             <span className=''>Perempuan</span>
@@ -87,7 +87,7 @@ const NewStudentGenderChart = ({gender} : {gender: Program}) => {
                     <p className='text-xs text-center text-amber-500'>{`${(genderCountArray[2].value/totalData[0].value * 100).toFixed(0)}%`}</p>
                 </div>
                 <div>
-                    <div className='flex justify-center items-center gap-3'>
+                    <div className='flex justify-center items-center gap-1'>
                         <div className='h-2 w-2 rounded-full bg-slate-300'></div>
                         <div className='text-xs md:text[12px] flex gap-1 text-text font-semibold'>
                             <span className=''>Kuota</span>
