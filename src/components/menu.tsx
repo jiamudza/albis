@@ -32,7 +32,7 @@ const menuItems = [
       { icon: <FaPeopleRoof />, label: "Wali", href: "/list/parents" },
       { icon: <MdMeetingRoom />, label: "Kelas", href: "/classes" },
       { icon: <MdAssignment />, label: "SPMB", href: "/spmb" },
-      { icon: <RiFileList2Fill />, label: "Kehadiran", href: "/attendance" },
+      { icon: <RiFileList2Fill />, label: "Kehadiran", href: "/absensi" },
       { icon: <FaMoneyBill />, label: "Keuangan", href: "/finance" },
       { icon: <MdInventory />, label: "Inventaris", href: "/inventory" },
       { icon: <GiSpellBook />, label: "E-Rapor", href: "/rapor" },
