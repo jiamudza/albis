@@ -1,3 +1,4 @@
+import AddQuestion from '@/components/master/addQuestion'
 import AddUser from '@/components/master/addUser'
 import React from 'react'
 
@@ -12,6 +13,9 @@ const MasterData = () => {
             {/* Add user */}
                 <div>
                     <AddUser />
+                </div>
+                <div className='mt-2'>
+                  <AddQuestion />
                 </div>
             </div>
 

@@ -139,10 +139,10 @@ const AddUser = ({ }) => {
                 onClick={() => {
                     setAddUser(true);
                 }}
-                className='text-sm font-semibold bg-primary text-white px-2 py-1 rounded-md border-b-3 border-white hover:bg-third hover:border-b-primary transition-hover ease-in-out duration-200 cursor-pointer'>Add User</button>
+                className='w-1/10 text-sm font-semibold bg-primary text-white px-2 py-1 rounded-md border-b-3 border-white hover:bg-third hover:border-b-primary transition-hover ease-in-out duration-200 cursor-pointer'>Add User</button>
             {/* add user menu */}
             {addUser &&
-                <div className='w-screen h-screen absolute-center overflow-hidden bg-white/`0 backdrop-blur-md transition-all ease-in-out duration-500'>
+                <div className='w-full h-screen absolute-center overflow-hidden bg-white/`0 backdrop-blur-md transition-all ease-in-out duration-500'>
                     <div className=' bg-white border absolute-center border-slate-300 border-b-3 border-b-third rounded-md shadow-md w-2/3 lg:w-1/3 '>
                         {/* close button */}
                         <div

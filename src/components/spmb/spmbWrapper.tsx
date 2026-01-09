@@ -5,7 +5,7 @@ import NewStudentsTable from '@/components/newStudentTable'
 import NewStudentsChart from '../newStudentChart'
 import NewStudentChartWrapper from './chartWrapper/chartWrapper'
 import { RiRefreshLine } from 'react-icons/ri'
-import SmpbFinance from './anggaranSpmb/SmpbFinance'
+import TahsinTahfidzTable from './anggaranSpmb/SmpbFinance'
 
 const tab = [
     {
@@ -19,8 +19,8 @@ const tab = [
         className: "px-2 lg:px-4 py-1 border-t-4 border-pink-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-pink-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white -mr-2 relative z-20"
     },
     {
-        key: "anggaran",
-        Label: "Anggaran",
+        key: "tahta",
+        Label: "Tahta",
         className: "px-2 lg:px-4 py-1 border-t-4 border-amber-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-amber-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white -mr-2 relative z-10"
     },
     {
@@ -40,6 +40,8 @@ const SpmbWrapper = () => {
     const [loading, setLoading] = useState(true)
     const [tabActive, setTabActive] = useState("data")
     const [refresh, setRefresh] = useState(false)
+    const [tahsinData, setTahsinData] = useState<any[]>([])
+    const [tahsinLoading, setTahsinLoading] = useState(false)
 
     type DataResponse = {
         page: number
@@ -54,6 +56,16 @@ const SpmbWrapper = () => {
             sub_kategori: string
             jumlah: number
         }[]
+    }
+
+    const tahsinPageData = {
+        page: 1,
+        total: 0,
+        totalPages: 0,
+        hasNextPage: false,
+        hasPrevPage: false,
+        limit: 10,
+        dataLength: tahsinData.length,
     }
 
     const [data, setData] = useState<DataResponse>({
@@ -136,7 +148,7 @@ const SpmbWrapper = () => {
             name: item.sub_kategori,
             value: item.jumlah
         }))
-        
+
     const gender = programSummary
         .filter(item => item.kategori === "Jenis Kelamin")
         .map(item => ({
@@ -152,7 +164,7 @@ const SpmbWrapper = () => {
             name: item.sub_kategori,
             value: item.jumlah
         }))
-    
+
 
     const component = () => {
         if (tabActive === "data") {
@@ -166,7 +178,7 @@ const SpmbWrapper = () => {
                     refresh={() => {
                         setRefresh(!refresh)
                     }}
-                    
+
                 />
             )
         }
@@ -182,11 +194,18 @@ const SpmbWrapper = () => {
             )
         }
 
-        if (tabActive === "anggaran") {
+        if (tabActive === "tahta") {
             return (
                 <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
                     <div className='h-1 w-full bg-amber-300 rounded-tr-md'></div>
-                    <SmpbFinance />
+                    <TahsinTahfidzTable
+                        // // data={tahsinData}
+                        // pageData={tahsinPageData}
+                        // loading={tahsinLoading}
+                        // filter={() => { }}
+                        // onPageChange={() => { }}
+                        // refresh={() => {}}
+                    />
                 </div>
             )
         }
@@ -207,16 +226,16 @@ const SpmbWrapper = () => {
                     <div className='flex items-center'>
                         <div className='flex items-center mt-2'>
                             {tab.map(t => (
-                            <div
-                                key={t.key}
-                                onClick={() => setTabActive(t.key)}
-                                className={`${t.className} cursor-pointer text-center transition-all ease-in-out duration-200 ${tabActive === t.key ? "z-40" : ""}`}
-                            >
-                                <p>{t.Label}</p>
-                            </div>
-                        ))}
+                                <div
+                                    key={t.key}
+                                    onClick={() => setTabActive(t.key)}
+                                    className={`${t.className} cursor-pointer text-center transition-all ease-in-out duration-200 ${tabActive === t.key ? "z-40" : ""}`}
+                                >
+                                    <p>{t.Label}</p>
+                                </div>
+                            ))}
                         </div>
-                        
+
                     </div>
 
                     <div className='relative z-0'>{component()}</div>
