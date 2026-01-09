@@ -4,6 +4,7 @@ const TYPES: { label: string; value: QuestionType }[] = [
   { label: 'Pilihan Ganda', value: 'PG' },
   { label: 'Essay / Isian', value: 'ESSAY' },
   { label: 'Menjodohkan', value: 'MATCH' },
+  { label: 'Lainnya', value: 'MORE' },
 ]
 
 interface Props {

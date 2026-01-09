@@ -1,0 +1,282 @@
+{
+  "title": "TES PENGETAHUAN UMUM",
+  "instructions": "Jawablah pertanyaan-pertanyaan di bawah dengan tepat!",
+  "sections": [
+    {
+      "id": 1,
+      "image": null,
+      "title": "NABI MUHAMMAD SAW",
+      "text": "Nabi Muhammad s a w lahir di kota Mekah Al Mukaromah pada hari Senin tanggal 12 rabi'ul awwal tahun gajah bertepatan pada tanggal 20 April 571 M. Pada waktu kecil, nabi Muhammad SAW pernah menggembalakan kambing milik pamannya. Beliau banyak memperoleh kepercayaan untuk menggembalakan kambing milik keluarga dan kambing kepunyaan penduduk Mekah. Pada usia 15 tahun Rasulullah ikut aktif membantu pamannya dalam perang fijar yaitu membantu menyediakan keperluan peperangan.  Menjelang usia 25 tahun nabi Muhammad SAW mulai hidup dan berusaha sendiri dengan cara berniaga nabi Muhammad berdagang atau berniaga ke Syam beliau ditemani oleh pembantu Khadijah yang bernama Maisarah. Setelah 14 tahun berumah tangga dengan Khadijah, nabi Muhammad SAW sering bertafakur ke gua Hira yang berada di bukit Nur atau Jabal Nur. Pada hari Jumat, malam 17 Ramadan , nabi Muhammad SAW sedang khusyuk bertafakur kepada Allah SWT tiba-tiba Malaikat Jibril datang memeluknya seraya berkata \" bacalah, wahai Muhammad! \"Dengan terkejut nabi Muhammad SAW menjawab, \"saya tidak dapat membaca. \"Malaikat Jibril kemudian memeluk kembali nabi Muhammad dan kembali berkata, \"bacalah wahai Muhammad! \"Nabi Muhammad SAW kembali menjawab \"saya tidak dapat membaca \"untuk ketiga kalinya Malaikat Jibril memeluk nabi Muhammad seraya berkata \"bacalah wahai Muhammad, wahai Muhammad SAW!\" Lagi-lagi nabi Muhammad SAW memberikan jawaban yang sama \"saya tidak dapat membaca \"kemudian nabi Muhammad SAW bertanya kepada Malaikat Jibril \"apa yang harus saya baca?\" Malaikat Jibril menjawab dengan wahyu pertama yaitu surah Al alaq ayat 1-5 ",
+      "questions": [
+        {
+          "id": 1,
+          "type": "multiple_choice",
+          "question": "Pada usia berapakah Rasulullah mulai mandiri dalam berniaga?",
+          "options": ["10 tahun", "15 tahun", "20 tahun", "25 tahun"],
+          "answer": "25 tahun"
+        },
+        {
+          "id": 2,
+          "type": "multiple_choice",
+          "question": "Dimanakah Rasulullah mendapatkan wahyu untuk pertama kalinya?",
+          "options": ["Gua Hira", "Gua Tsur", "Jabal Rahman", "Jabal Uhud"],
+          "answer": "Gua Hira"
+        },
+        {
+          "id": 3,
+          "type": "multiple_choice",
+          "question": "Siapakah yang menemani Rasulullah SAW saat berdagang ke Syam?",
+          "options": ["Malaikat Jibril", "Siti Khadijah", "Maisarah", "Jabal Nur"],
+          "answer": "Maisarah"
+        },
+        {
+          "id": 4,
+          "type": "multiple_choice",
+          "question": "Perilaku Nabi Muhammad SAW yang harus kita jadikan teladan adalah…",
+          "options": [
+            "Ramah, jujur, dan khianat",
+            "Jujur, berpendirian teguh, dan kikir",
+            "Berpendirian teguh, semangat tinggi, dan ramah",
+            "Amanah, Baladah, dan semangat tinggi"
+          ],
+          "answer": "Berpendirian teguh, semangat tinggi, dan ramah"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": null,
+      "title": "Indonesia Negara Kepulauan",
+      "text": "Indonesia merupakan Negara kepulauan yang terletak di daerah khatulistiwa, yang tersebar dari sabang sampai merauke. Indonesia juga memiliki luas laut yang lebih besar dari daratannya, yaitu dengan perbandingan 3:2 membuat Indonesia kaya akan sumber daya kelautannya. Indonesia yang secara astronomis (dilihat dari garis lintang dan garis bujurnya) berada di 6° LU – 11° LS dan 95° BT – 141° BT membuat Indonesia berada dikawasan beriklim tropis dengan curah hujan yang tinggi dan membagi Indonesia kedalam tiga daerah waktu (WIB, WITA, WIT). Posisi geografis yang merupakan letak daerah yang dilihat dari kenyataannya dipermukaan bumi yaitu Indonesia yang  diapit oleh dua benua (Asia dan Australia) dan dua samudra (Hindia dan Pasifik) telah menyebabkan wilayah Indonesia mengalami perubahan musim setiap enam bulan sekali, dan juga berada pada titik pusat jalur lalu lintas dunia yang sangat ramai. ",
+      "questions": [
+        {
+          "id": 5,
+          "type": "multiple_choice",
+          "question": "Letak daerah yang dilihat dari kenyataannya di permukaan bumi disebut letak…",
+          "options": ["Letak astronomis", "Letak geografis", "Letak koordinat", "Letak geologis"],
+          "answer": "Letak geografis"
+        },
+        {
+          "id": 6,
+          "type": "multiple_choice",
+          "question": "Letak kepulauan Indonesia berdasarkan letak geografisnya adalah…",
+          "options": [
+            "Di antara Benua Asia dan Benua Australia",
+            "Di antara Benua Asia dan Benua Amerika",
+            "Di antara Benua Australia dan Benua Amerika",
+            "Di antara Benua Australia dan Benua Eropa"
+          ],
+          "answer": "Di antara Benua Asia dan Benua Australia"
+        },
+        {
+          "id": 7,
+          "type": "multiple_choice",
+          "question": "Berdasarkan letak geografisnya, Indonesia mengalami perubahan musim setiap enam bulan sekali yaitu musim…",
+          "options": [
+            "Musim hujan dan pancaroba",
+            "Musim panas dan salju",
+            "Musim hujan dan kemarau",
+            "Musim kemarau dan panas"
+          ],
+          "answer": "Musim hujan dan kemarau"
+        },
+        {
+          "id": 8,
+          "type": "multiple_choice",
+          "question": "Kalimat yang tidak sesuai dengan informasi di atas adalah…",
+          "options": [
+            "Indonesia terletak di daerah khatulistiwa",
+            "Indonesia kaya akan hasil laut",
+            "Luas daratan di Indonesia lebih besar dari luas lautan",
+            "Indonesia diapit oleh dua benua"
+          ],
+          "answer": "Luas daratan di Indonesia lebih besar dari luas lautan"
+        },
+        {
+          "id": 9,
+          "type": "multiple_choice",
+          "question": "Ide pokok dari paragraf di atas adalah…",
+          "options": [
+            "Indonesia kaya akan hasil laut",
+            "Indonesia diapit benua Asia dan Australia",
+            "Indonesia merupakan negara kepulauan yang terletak di daerah khatulistiwa",
+            "Indonesia memiliki lautan yang lebih luas dari daratan"
+          ],
+          "answer": "Indonesia merupakan negara kepulauan yang terletak di daerah khatulistiwa"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "https://imgix2.ruangguru.com/assets/miscellaneous/png_rp4gss_9108.png",
+      "title": "Rantai Makanan Ekosistem Sawah",
+      "questions": [
+        {
+          "id": 10,
+          "type": "multiple_choice",
+          "question": "Peran produsen pada rantai makanan di atas adalah...",
+          "options": [
+            "Tempat terjadinya fotosintesis menghasilkan padi",
+            "Mengurai zat organik menjadi anorganik",
+            "Pengurai sebagai detrivitor",
+            "Konsumen tersier"
+          ],
+          "answer": "Tempat terjadinya fotosintesis menghasilkan padi"
+        },
+        {
+          "id": 11,
+          "type": "multiple_choice",
+          "question": "Pada ekosistem sawah yang menjadi konsumen 1, 2, dan 3 adalah...",
+          "options": [
+            "Padi, tikus, dan ular",
+            "Tikus, ular, dan elang",
+            "Padi, ular, dan elang",
+            "Ular, elang, dan jamur"
+          ],
+          "answer": "Tikus, ular, dan elang"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": null,
+      "title": "Cerita Wisata SvargaBumi",
+      "text": "Pak Usup memiliki dua bidang sawah yang akan diukur luasnya. Sawah pertama memiliki panjang 90 meter dan lebar 90 meter. Sedangkan sawah kedua memiliki panjang 50 meter dan lebar 50 meter. Pak Usup akan mengukur luas kedua sawahnya tersebut dalam satuan yang berbeda. Untuk sawah pertama, Pak Usup akan mengukurnya dalam satuan desimeter persegi (dm²), sedangkan untuk sawah kedua, Pak Usup akan mengukurnya dalam satuan hektometer persegi (hm²). Setelah mengukur, Pak Usup ingin mengetahui berapa luas total kedua sawahnya tersebut jika diubah ke dalam satuan yang sama yaitu dalam meter persegi (m²).",
+      "questions": [
+        {
+          "id": 12,
+          "type": "multiple_choice",
+          "question": "Berdasarkan teks berita di atas besaran yang diukur adalah...",
+          "options": ["Panjang dan luas", "Massa dan panjang", "Panjang dan volume", "Volume dan luas"],
+          "answer": "Panjang dan luas"
+        },
+        {
+          "id": 13,
+          "type": "multiple_choice",
+          "question": "Berdasarkan teks berita di atas yang dapat diambil sebagai contoh ekosistem adalah...",
+          "options": ["Sawah", "Candi Borobudur", "Magelang", "Tempat wisata"],
+          "answer": "Sawah"
+        },
+        {
+          "id": 14,
+          "type": "multiple_choice",
+          "question": "Berapa luas sawah pertama Pak Usup jika diubah ke dalam meter persegi (m²)?",
+          "options": ["810 m²", "0,81 m²", "8.100 m²", "8,1 m²"],
+          "answer": "8.100 m²"
+        },
+        {
+          "id": 15,
+          "type": "true_false",
+          "question": "Luas sawah kedua Pak Usup adalah 250 m²",
+          "answer": true
+        },
+        {
+          "id": 16,
+          "type": "true_false",
+          "question": "Jumlah luas kedua sawah Pak Usup adalah 331 dam²",
+          "answer": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": null,
+      "title": "Rukun Iman dan Rukun Islam",
+      "text": "Rukun Iman dan Rukun Islam adalah landasan beramal bagi seorang muslim. Rukun Iman mengandung pokok-pokok kepercayaan dalam agama Islam. Sedangkan Rukun Islam, mengandung 5 perintah utama dalam menjalankan kepercayaan sebagai penganut agama Islam.",
+      "questions": [
+        {
+          "id": 17,
+          "type": "true_false",
+          "question": "Sholat dan ibadah haji merupakan salah satu bagian dari Rukun Iman.",
+          "answer": false
+        },
+        {
+          "id": 18,
+          "type": "true_false",
+          "question": "Perilaku Rahma mencerminkan contoh beriman kepada rukun Islam ke-3.",
+          "answer": false
+        },
+        {
+          "id": 19,
+          "type": "true_false",
+          "question": "Rukun Islam mengandung percaya adanya malaikat dan hari kiamat.",
+          "answer": false
+        },
+        {
+          "id": 20,
+          "type": "multiple_choice",
+          "question": "Susunan dua kalimat syahadat beserta artinya yang tepat adalah!",
+          "items": [
+            "أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ",
+            "dan aku bersaksi bahwa Muhammad adalah utusan Allah.",
+            "Aku bersaksi bahwa tidak ada tuhan selain Allah",
+            "وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللّٰهِ"
+          ],
+          "options": ["1,3,2,4", "1,3,4,2", "1,4,3,2", "4,1,3,2"],
+          "answer": "1,4,3,2"
+        }
+      ]
+    },
+    {
+      "id": 6,
+    "image": null,
+      "title": "Bahasa Arab dan Bahasa Inggris",
+      "questions": [
+        {
+          "id": 21,
+          "type": "multiple_choice",
+          "question": "kata berikut apabila dipisah maka tersusun dari huruf-huruf.... مُحَمَّدًا",
+          "options": [
+            "م - خ - د - م - ل",
+            "م - خ - م - د - ل",
+            "م - ح - م - د - ا",
+            "م - ج - م - د - ا"
+          ],
+          "answer": "م - ح - م - د - ا"
+        },
+        {
+          "id": 22,
+          "type": "multiple_choice",
+          "question": "Huruf-huruf berikut apabila disambung maka akan menjadi...\nا - ل - م - س - ج - د",
+          "options": [
+            "مَسْجِدٌا",
+            "مَسْجِدٌ",
+            "اَلسَّاجِدُ",
+            "اَلْمَسْجِدُ"
+          ],
+          "answer": "اَلْمَسْجِدُ"
+        },
+        {
+          "id": 23,
+          "question": "Cocokkan kata-kata bahasa Arab berikut dengan artinya dalam bahasa Indonesia:",
+          "type": "matching",
+          "pairs": {
+            "مَدْرَسَةٌ": "Sekolah",
+            "خَمْسَةٌ": "Lima",
+            "أَنْتَ": "Kamu",
+            "أَنَا": "Saya"
+          }
+        },
+        {
+          "id": 24,
+          "type": "multiple_choice",
+          "question": "Complete the sentence: \"My name ___ John. I ___ 12 years old.\"",
+          "options": ["is, am", "are, is", "am, is", "is, are"],
+          "answer": "is, am"
+        },
+        {
+          "id": 25,
+          "type": "multiple_choice",
+          "question": "Choose the correct translation: \"I have a red book.\"",
+          "options": [
+            "Saya mempunyai buku merah.",
+            "Saya suka buku merah.",
+            "Saya membaca buku merah.",
+            "Saya membeli buku merah."
+          ],
+          "answer": "Saya mempunyai buku merah."
+        }
+      ]
+    }
+  ]
+}

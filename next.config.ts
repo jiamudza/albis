@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       "api.dicebear.com",
       "avatar.iran.liara.run",
       "res.cloudinary.com",
+      "imgix2.ruangguru.com",
     ],
   },
 };

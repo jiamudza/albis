@@ -3,7 +3,7 @@ import type { MatchItem, MatchAnswer } from './match.dto'
 /* =========================
    QUESTION TYPE
 ========================= */
-export type QuestionType = 'PG' | 'ESSAY' | 'MATCH'
+export type QuestionType = 'PG' | 'ESSAY' | 'MATCH' | 'MORE'
 
 /* =========================
    IMAGE (OPSIONAL)
@@ -17,9 +17,11 @@ export interface QuestionImage {
    MAIN QUESTION DRAFT
 ========================= */
 export interface QuestionDraft {
+   category?: string
   // metadata
   date: string               // tanggal soal
-  number: number             // nomor soal (per tanggal)
+  number: number           // nomor urut soal
+  wacana?: string            // wacana soal (opsional)
   question: string           // teks soal utama
   types: QuestionType[]      // bisa PG / ESSAY / MATCH (atau kombinasi)
 

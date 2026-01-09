@@ -1,0 +1,145 @@
+{
+  "title": "KUESIONER DAN TES SISWA",
+  "instructions": "Isi soal berikut dengan jujur",
+  "sections": [
+    {
+  "id": 10,
+  "title": "KUESIONER GAYA BELAJAR SISWA",
+  "text": "Baca setiap pernyataan dengan saksama. Pilih jawaban yang paling sesuai dengan kebiasaan Anda.",
+  "questions": [
+    {
+      "id": 50,
+      "type": "multiple_choice",
+      "question": "Saya mudah memahami pelajaran ketika melihat diagram, grafik, atau gambar.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 51,
+      "type": "multiple_choice",
+      "question": "Saya suka membuat catatan yang penuh warna atau dihiasi gambar.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 52,
+      "type": "multiple_choice",
+      "question": "Saya lebih suka belajar dari video atau presentasi dengan banyak gambar visual.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 53,
+      "type": "multiple_choice",
+      "question": "Saya lebih mudah mengingat informasi yang saya dengar daripada yang saya lihat.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 54,
+      "type": "multiple_choice",
+      "question": "Saya suka berdiskusi atau mendengarkan penjelasan untuk memahami pelajaran.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 55,
+      "type": "multiple_choice",
+      "question": "Saya sering membaca dengan suara keras untuk memahami materi.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 56,
+      "type": "multiple_choice",
+      "question": "Saya lebih mudah memahami materi dengan membaca buku atau modul.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 57,
+      "type": "multiple_choice",
+      "question": "Saya suka menulis ringkasan atau mencatat poin-poin penting saat belajar.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 58,
+      "type": "multiple_choice",
+      "question": "Saya lebih nyaman belajar dengan bahan tertulis daripada mendengarkan penjelasan.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 59,
+      "type": "multiple_choice",
+      "question": "Saya lebih memahami pelajaran dengan melakukan praktik langsung atau simulasi.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 60,
+      "type": "multiple_choice",
+      "question": "Saya suka belajar sambil bergerak atau melakukan aktivitas fisik.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 61,
+      "type": "multiple_choice",
+      "question": "Saya merasa bosan jika belajar hanya duduk diam dan membaca.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 62,
+      "type": "multiple_choice",
+      "question": "Saya suka belajar dengan teman atau dalam kelompok.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 63,
+      "type": "multiple_choice",
+      "question": "Saya lebih mudah memahami pelajaran jika berdiskusi dengan orang lain.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 64,
+      "type": "multiple_choice",
+      "question": "Saya senang bekerja sama untuk menyelesaikan tugas atau proyek.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 65,
+      "type": "multiple_choice",
+      "question": "Saya lebih suka belajar sendiri tanpa gangguan dari orang lain.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 66,
+      "type": "multiple_choice",
+      "question": "Saya suka merenung atau berpikir sendiri untuk memahami pelajaran.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 67,
+      "type": "multiple_choice",
+      "question": "Saya merasa lebih fokus belajar jika sendirian.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 68,
+      "type": "multiple_choice",
+      "question": "Saya suka memecahkan teka-teki atau masalah yang membutuhkan logika.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 69,
+      "type": "multiple_choice",
+      "question": "Saya merasa lebih mudah memahami pelajaran jika dijelaskan secara sistematis.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 70,
+      "type": "multiple_choice",
+      "question": "Saya suka mencari pola atau hubungan antar informasi saat belajar.",
+      "options": ["Selalu", "Kadang-kadang", "Tidak Pernah"]
+    },
+    {
+      "id": 71,
+      "type": "paragraph",
+      "question": "Ceritakan bagaimana caramu mudah memahami sesuatu!"
+    }
+  ]
+}
+
+  ]
+}

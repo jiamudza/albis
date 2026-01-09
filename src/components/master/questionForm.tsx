@@ -39,5 +39,14 @@ export const QuestionForm = ({ data, setData }: any) => (
         }
       />
     )}
+
+    {data.types.includes('MORE') && (
+      <MatchingForm
+        pairs={data.matchPairs}
+        onChange={(v: any) =>
+          setData({ ...data, matchPairs: v })
+        }
+      />
+    )}
   </>
 )

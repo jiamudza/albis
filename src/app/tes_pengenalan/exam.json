@@ -1,0 +1,164 @@
+{
+  "id": 7,
+  "title": "PENGENALAN DIRI",
+  "instructions": "Sesi ini merupakan bagian pernyataan mengenai pengalaman pribadi dan spiritual, harap dijawab dengan sejujur-jujurnya. Hasil ini tidak memengaruhi hasil tes lainnya.",
+  "sections": [
+    {
+      "id": 7,
+      "title": "Ibadah dan Keluarga",
+      "questions": [
+        {
+          "id": 26,
+          "type": "multiple_choice",
+          "question": "Saya sudah memahami kewajiban dalam salat 5 waktu",
+          "options": ["Paham", "Kurang paham", "Tidak paham"]
+        },
+        {
+          "id": 27,
+          "type": "checkbox",
+          "question": "Saya melaksanakan sholat wajib berikut!",
+          "options": ["Shubuh", "Zuhur", "Ashar", "Magrib", "Isya"]
+        },
+        {
+          "id": 28,
+          "type": "multiple_choice",
+          "question": "Apakah orang tua memberikan contoh dalam melaksanakan ibadah salat, puasa, zakat atau haji?",
+          "options": ["Ya", "Kadang-kadang", "Tidak"]
+        },
+        {
+          "id": 29,
+          "type": "multiple_choice",
+          "question": "Apakah orang tua memberi hukuman jika Anda tidak menjalankan ibadah puasa dan salat?",
+          "options": ["Ya", "Kadang-kadang", "Tidak"]
+        },
+        {
+          "id": 30,
+          "type": "multiple_choice",
+          "question": "Apakah orang tua memberi hadiah jika anda rajin dalam beribadah, terutama salat dan puasa?",
+          "options": ["Ya", "Kadang-kadang", "Tidak"]
+        },
+        {
+          "id": 31,
+          "type": "paragraph",
+          "question": "Bagaimana cara orang tua mengajarkan ibadah puasa kepada anda?"
+        },
+        {
+          "id": 32,
+          "type": "paragraph",
+          "question": "Bagaimana cara orang tua memotivasi anda dalam menjalankan ibadah puasa Ramadan?"
+        },
+        {
+          "id": 33,
+          "type": "paragraph",
+          "question": "Apakah Anda terbiasa menjalankan ibadah sunnah? (jika iya, sebutkan)"
+        },
+        {
+          "id": 34,
+          "type": "paragraph",
+          "question": "Bagaimana komunikasi anda dengan orang tua? Jelaskan"
+        },
+        {
+          "id": 35,
+          "type": "short_answer",
+          "question": "Apakah anda memiliki waktu khusus bersama orang tua setiap harinya? Berapa lama dalam sehari?"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Sikap dan Perilaku Sosial",
+      "questions": [
+        {
+          "id": 36,
+          "type": "multiple_choice",
+          "question": "Saya membantu orang tua tanpa disuruh",
+          "options": ["Selalu", "Kadang-kadang", "Sangat jarang"]
+        },
+        {
+          "id": 37,
+          "type": "paragraph",
+          "question": "Membantu orang tua seperti apa yang biasa anda lakukan?"
+        },
+        {
+          "id": 38,
+          "type": "multiple_choice",
+          "question": "Saya selalu berkata baik kepada teman (tidak berkata kotor/kasar)",
+          "options": ["Sangat jarang", "Kadang-kadang", "Selalu"]
+        },
+        {
+          "id": 39,
+          "type": "paragraph",
+          "question": "Menurutmu, bagaimana menjadi siswa yang baik?"
+        },
+        {
+          "id": 40,
+          "type": "paragraph",
+          "question": "Apa anda tahu apa itu bullying? Bisakah anda menjelaskan apa itu dan memberi contoh?"
+        },
+        {
+          "id": 41,
+          "type": "paragraph",
+          "question": "Bagaimana sikap anda jika ada orang di kelas yang memiliki nama panggilan tertentu? (contoh: teman bertubuh gemuk dipanggil “endut”)"
+        },
+        {
+          "id": 42,
+          "type": "paragraph",
+          "question": "Apakah Anda pernah mengalami pembulian di sekolah, lingkungan rumah atau di media sosial sebelumnya? Bila pernah, jelaskan bentuk pembulian tersebut dan bagaimana perasaanmu saat ini."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Pemahaman Keagamaan dan Minat",
+      "questions": [
+        {
+          "id": 43,
+          "type": "paragraph",
+          "question": "Apa yang Anda ketahui tentang batasan aurat perempuan/laki-laki?"
+        },
+        {
+          "id": 44,
+          "type": "paragraph",
+          "question": "Apa saja adab makan dan minum yang Anda ketahui?"
+        },
+        {
+          "id": 45,
+          "type": "paragraph",
+          "question": "Apa yang kamu ketahui dari Rasulullah SAW?"
+        },
+        {
+          "id": 46,
+          "type": "paragraph",
+          "question": "Apakah Anda memiliki prestasi di bidang tertentu? Sebutkan!"
+        },
+        {
+          "id": 47,
+          "type": "multiple_choice",
+          "question": "Apakah orang tua selalu memberikan kebebasan Anda dalam melakukan segala sesuatu?",
+          "options": ["Ya", "Kadang-kadang", "Tidak"]
+        },
+        {
+          "id": 48,
+          "type": "multiple_choice",
+          "question": "Apakah orang tua selalu memberikan peraturan ketat dan tegas kepada anda dalam melakukan segala sesuatu?",
+          "options": ["Ya", "Kadang-kadang", "Tidak"]
+        },
+        {
+          "id": 49,
+          "type": "checkbox",
+          "question": "Di bawah ini, hal yang anda minati adalah?",
+          "options": [
+            "Kepemimpinan",
+            "Seni",
+            "Olahraga",
+            "Keagamaan",
+            "Bahasa",
+            "Teknologi Komputer",
+            "Design Grafis",
+            "Yang lain"
+          ]
+        }
+      ]
+    }
+  ]
+}
