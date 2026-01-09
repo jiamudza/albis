@@ -80,7 +80,7 @@ export default function AddQuestion() {
     //   console.log(k, v)
     // }
 
-    axios.post('http://localhost:5000/api/questions', formData, {
+    axios.post('/api/questions', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

@@ -69,7 +69,7 @@ const Menu = ({ user }: MenuProps) => {
   const handleLogout = async () => {
     try {
   // panggil endpoint logout di server
-  await axios.post("http://localhost:5000/api/logout", {}, { withCredentials: true });
+  await axios.post("/api/logout", {}, { withCredentials: true });
   router.push("/login");
 } catch (err: any) {
   // cast err ke AxiosError

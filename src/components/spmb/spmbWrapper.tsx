@@ -94,7 +94,7 @@ const SpmbWrapper = () => {
     // === Fetch data setiap kali search atau page berubah ===
     useEffect(() => {
         setLoading(true)
-        axios.get(`http://localhost:5000/api/getNewStudents?search=${debounceSearch}&page=${filter.page}&limit=10`, { withCredentials: true })
+        axios.get(`/api/getNewStudents?search=${debounceSearch}&page=${filter.page}&limit=10`, { withCredentials: true })
             .then(res => {
                 setData(res.data)
             })

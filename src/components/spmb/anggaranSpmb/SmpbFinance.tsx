@@ -62,7 +62,7 @@ export default function TahsinTahfidzTable() {
   const fetchData = async (pageNumber: number = 1) => {
     setLoading(true)
     try {
-      const res = await axios.get(`http://localhost:5000/api/tahta?page=${pageNumber}&limit=10`)
+      const res = await axios.get(`/api/tahta?page=${pageNumber}&limit=10`)
       const response = res.data
       setData(response.data)
       setPageData({
@@ -124,7 +124,7 @@ export default function TahsinTahfidzTable() {
       prev.map(item => (item.id === updated.id ? updated : item))
     )
     try {
-      await axios.patch(`http://localhost:5000/api/tahta/${updated.id}`, updated)
+      await axios.patch(`/api/tahta/${updated.id}`, updated)
     } catch (error) {
       console.error('Update error:', error)
       alert('Gagal menyimpan perubahan')

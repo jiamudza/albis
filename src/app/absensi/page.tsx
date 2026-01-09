@@ -31,7 +31,7 @@ const Absensi = () => {
     timeoutRef.current = setTimeout(async () => {
       try {
         const updatedAbsen = { user_id: value, status: 'hadir' }
-        await axios.post('http://localhost:5000/api/absensi', updatedAbsen)
+        await axios.post('/api/absensi', updatedAbsen)
         setSuccess('true')
       } catch (error) {
         setSuccess('false')
