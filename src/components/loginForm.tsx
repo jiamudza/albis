@@ -75,7 +75,7 @@ const LoginForm = () => {
       setUser(data.user);
 
       const callbackUrl =
-        searchParams.get('callbackUrl') || '/spmb';
+        searchParams.get('callbackUrl') || '/administration';
 
       router.push(callbackUrl);
 
