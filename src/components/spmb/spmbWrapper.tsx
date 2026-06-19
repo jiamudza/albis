@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import NewStudentsTable from '@/components/newStudentTable'
 import NewStudentsChart from '../newStudentChart'
+import NewStudentChartWrapper from './chartWrapper/chartWrapper'
+import { RiRefreshLine } from 'react-icons/ri'
+import TahsinTahfidzTable from './anggaranSpmb/SmpbFinance'
 
 const tab = [
     {
@@ -16,8 +19,8 @@ const tab = [
         className: "px-2 lg:px-4 py-1 border-t-4 border-pink-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-pink-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white -mr-2 relative z-20"
     },
     {
-        key: "anggaran",
-        Label: "Anggaran",
+        key: "tahta",
+        Label: "Tahta",
         className: "px-2 lg:px-4 py-1 border-t-4 border-amber-500 [clip-path:polygon(10%_0,90%_0,100%_100%,0_100%)] bg-amber-300 text-[10px] md:text-xs lg:text-sm font-semibold text-white -mr-2 relative z-10"
     },
     {
@@ -36,6 +39,9 @@ const SpmbWrapper = () => {
     const [debounceSearch, setDebounceSearch] = useState(filter.search)
     const [loading, setLoading] = useState(true)
     const [tabActive, setTabActive] = useState("data")
+    const [refresh, setRefresh] = useState(false)
+    const [tahsinData, setTahsinData] = useState<any[]>([])
+    const [tahsinLoading, setTahsinLoading] = useState(false)
 
     type DataResponse = {
         page: number
@@ -50,6 +56,16 @@ const SpmbWrapper = () => {
             sub_kategori: string
             jumlah: number
         }[]
+    }
+
+    const tahsinPageData = {
+        page: 1,
+        total: 0,
+        totalPages: 0,
+        hasNextPage: false,
+        hasPrevPage: false,
+        limit: 10,
+        dataLength: tahsinData.length,
     }
 
     const [data, setData] = useState<DataResponse>({
@@ -78,12 +94,12 @@ const SpmbWrapper = () => {
     // === Fetch data setiap kali search atau page berubah ===
     useEffect(() => {
         setLoading(true)
-        axios.get(`https://albis-navy.vercel.app/api/getNewStudents?search=${debounceSearch}&page=${filter.page}&limit=10`, { withCredentials: true })
+        axios.get(`/api/getNewStudents?search=${debounceSearch}&page=${filter.page}&limit=10`, { withCredentials: true })
             .then(res => {
                 setData(res.data)
             })
             .finally(() => setLoading(false))
-    }, [debounceSearch, filter.page])
+    }, [debounceSearch, filter.page, refresh])
 
     // === handle pagination ===
     const handlePageChange = (page: number) => {
@@ -128,22 +144,27 @@ const SpmbWrapper = () => {
     const program = programSummary
         .filter(item => item.kategori === "Program")
         .map(item => ({
+            kategori: item.kategori,
             name: item.sub_kategori,
             value: item.jumlah
         }))
+
     const gender = programSummary
         .filter(item => item.kategori === "Jenis Kelamin")
         .map(item => ({
+            kategori: item.kategori,
             name: item.sub_kategori,
             value: item.jumlah
         }))
+
     const statusPembayaran = programSummary
         .filter(item => item.kategori === "Status Pembayaran")
         .map(item => ({
+            kategori: item.kategori,
             name: item.sub_kategori,
             value: item.jumlah
         }))
-    
+
 
     const component = () => {
         if (tabActive === "data") {
@@ -153,35 +174,38 @@ const SpmbWrapper = () => {
                     pageData={pageData}
                     filter={handleSearch}
                     loading={loading}
-                    onPageChange={handlePageChange} // ✅ kirim handler pagination
+                    onPageChange={handlePageChange}
+                    refresh={() => {
+                        setRefresh(!refresh)
+                    }}
+
                 />
             )
         }
 
         if (tabActive === "persentase") {
             return (
-                <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300 h-80'>
+                <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300 h-full'>
                     <div className='h-1 w-full bg-pink-300 rounded-tr-md'></div>
-                    <div className='flex flex-col md:flex-row justify-center'>
-                        <div className='flex-1/3'>
-                            <NewStudentsChart key="program" programSummary={program} />
-                        </div>
-                        <div className='flex-1/3'>
-                            <NewStudentsChart key="gender" programSummary={gender} />
-                        </div>
-                        <div className='flex-1/3'>
-                            <NewStudentsChart key="status" programSummary={statusPembayaran} />
-                        </div>
+                    <div className='p-5'>
+                        <NewStudentChartWrapper program={program} gender={gender} pembayaran={statusPembayaran} />
                     </div>
                 </div>
             )
         }
 
-        if (tabActive === "anggaran") {
+        if (tabActive === "tahta") {
             return (
                 <div className='border border-t-0 rounded-md rounded-tl-none bg-white border-slate-300'>
                     <div className='h-1 w-full bg-amber-300 rounded-tr-md'></div>
-                    <p className='p-4'>Anggaran</p>
+                    <TahsinTahfidzTable
+                        // // data={tahsinData}
+                        // pageData={tahsinPageData}
+                        // loading={tahsinLoading}
+                        // filter={() => { }}
+                        // onPageChange={() => { }}
+                        // refresh={() => {}}
+                    />
                 </div>
             )
         }
@@ -199,19 +223,22 @@ const SpmbWrapper = () => {
             <div className='flex flex-col lg:flex-row'>
                 <div className='flex-2/3'>
                     <h3 className='font-bold text-lg text-primary'>Sistem Penerimaan Murid Baru (SPMB)</h3>
-                    <div className='flex mt-2'>
-                        {tab.map(t => (
-                            <div
-                                key={t.key}
-                                onClick={() => setTabActive(t.key)}
-                                className={`${t.className} cursor-pointer text-center transition-all ease-in-out duration-200 ${tabActive === t.key ? "z-40" : ""}`}
-                            >
-                                <p>{t.Label}</p>
-                            </div>
-                        ))}
+                    <div className='flex items-center'>
+                        <div className='flex items-center mt-2'>
+                            {tab.map(t => (
+                                <div
+                                    key={t.key}
+                                    onClick={() => setTabActive(t.key)}
+                                    className={`${t.className} cursor-pointer text-center transition-all ease-in-out duration-200 ${tabActive === t.key ? "z-40" : ""}`}
+                                >
+                                    <p>{t.Label}</p>
+                                </div>
+                            ))}
+                        </div>
+
                     </div>
 
-                    <div>{component()}</div>
+                    <div className='relative z-0'>{component()}</div>
                 </div>
             </div>
         </div>

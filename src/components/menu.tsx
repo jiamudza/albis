@@ -4,16 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import logo from "../../public/logo.png";
-import { useAuth } from "@/context/AuthContext";
-import axios from "axios";
+// import { useAuth } from "@/context/AuthContext";
+import axios, { AxiosError } from "axios";
 
 // icon imports
 import {
-  RiHome5Fill, RiQrCodeFill, RiCalendarScheduleFill, RiFileList2Fill, RiLogoutBoxFill, RiMessage2Fill, RiAdminFill
+  RiHome5Fill, RiCalendarScheduleFill, RiFileList2Fill, RiLogoutBoxFill, RiAdminFill
 } from "react-icons/ri";
 import { HiUser, HiUserGroup } from "react-icons/hi2";
 import { BsFillGearFill } from "react-icons/bs";
-import { FaMoneyBill, FaPeopleRoof } from "react-icons/fa6";
+import { FaMoneyBill, FaFolderOpen } from "react-icons/fa6";
 import { MdInventory, MdMeetingRoom, MdAssignment } from "react-icons/md";
 import { IoIosMegaphone } from "react-icons/io";
 import { GiSpellBook } from "react-icons/gi";
@@ -29,10 +29,10 @@ const menuItems = [
       { icon: <RiHome5Fill />, label: "Dashboard", href: "/admin" },
       { icon: <HiUser />, label: "Guru", href: "/list/teachers" },
       { icon: <HiUserGroup />, label: "Siswa", href: "/list/students" },
-      { icon: <FaPeopleRoof />, label: "Wali", href: "/list/parents" },
+      { icon: <FaFolderOpen />, label: "Administrasi", href: "/administration" },
       { icon: <MdMeetingRoom />, label: "Kelas", href: "/classes" },
       { icon: <MdAssignment />, label: "SPMB", href: "/spmb" },
-      { icon: <RiFileList2Fill />, label: "Kehadiran", href: "/attendance" },
+      { icon: <RiFileList2Fill />, label: "Kehadiran", href: "/absensi" },
       { icon: <FaMoneyBill />, label: "Keuangan", href: "/finance" },
       { icon: <MdInventory />, label: "Inventaris", href: "/inventory" },
       { icon: <GiSpellBook />, label: "E-Rapor", href: "/rapor" },
@@ -45,7 +45,7 @@ const menuItems = [
     title: "OTHER",
     items: [
       { icon: <BsFillGearFill />, label: "Pengaturan", href: "/settings" },
-      { icon: <RiLogoutBoxFill />, label: "Logout", href: "/logout" }, // nanti kita ganti logic
+      { icon: <RiLogoutBoxFill />, label: "Logout", href: "/login" }, // nanti kita ganti logic
     ],
   },
 ];
@@ -68,20 +68,13 @@ const Menu = ({ user }: MenuProps) => {
 
   const handleLogout = async () => {
     try {
-      // panggil endpoint logout di server
-      await axios.post("https://albis-navy.vercel.app/api/logout", {}, { withCredentials: true });
-
-      // hapus user dari context
-      // setUser(null);
-
-      // redirect ke login
-      router.push("/login");
-    } catch (err: any) {
-      console.error("Logout gagal:", err.response?.data || err);
-      // tetap hapus user dari context agar UI clear
-      // setUser(null);
-      router.push("/login");
-    }
+  // panggil endpoint logout di server
+  await axios.post("/api/logout", {}, { withCredentials: true });
+  router.push("/login");
+} catch (err: any) {
+  // cast err ke AxiosError
+  console.log("Logout gagal:", err.response?.data);
+}
   };
 
 
@@ -124,7 +117,7 @@ const Menu = ({ user }: MenuProps) => {
                   onClick={handleLogout}
                   className={
                     (sideBar ? "lg:justify-start items-center lg:h-7 xl:h-8" : "justify-center items-center lg:h-7 xl:h-8") +
-                    " text-xs xl:text-xs flex justify-center lg:gap-4 text-center py-2 xl:px-2 transition-all ease-in-out duration-200 hover:bg-[#ecebc391] w-full"
+                    " text-xs xl:text-xs flex justify-center lg:gap-4 text-center py-2 xl:px-2 transition-all ease-in-out duration-200 hover:bg-[#ecebc391] w-full cursor-pointer"
                   }
                 >
                   <span className={(sideBar ? "lg:px-[0.689rem] " : "") + "text-lg md:text-lg lg:text-xs xl:text-[15px] text-center transition-none"}>

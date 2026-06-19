@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import axios from 'axios' // ✅ tambahkan import axios
+import axios, { AxiosError } from 'axios' // ✅ tambahkan import axios
 
 interface User {
     username: string,
@@ -55,32 +55,41 @@ const AddUser = ({ }) => {
 
         if (isValid) {
             try {
-                setLoading(true)
-                setMessage("")
+                setLoading(true);
+                setMessage("");
 
-                // ✅ kirim data ke backend
-                const response = await axios.post("https://albis-navy.vercel.app/api/users", user, {
-                    headers: { "Content-Type": "application/json" },
-                    withCredentials: true,
-                })
+                //kirim data ke backend
+                const response = await axios.post(
+                    "/api/users",
+                    user,
+                    {
+                        headers: { "Content-Type": "application/json" },
+                        withCredentials: true,
+                    }
+                );
 
-                setMessage(response.data.message || "User berhasil ditambahkan ✅")
-                alert("User berhasil ditambahkan")
-                setAddUser(false)
+                setMessage(response.data.message || "User berhasil ditambahkan ✅");
+                alert("User berhasil ditambahkan");
+                setAddUser(false);
                 setUser({
                     username: "",
                     password: "",
                     id_role: "",
                     role: []
-                })
-                localStorage.removeItem('addUser')
-            } catch (error: any) {
-                console.error(error)
-                setMessage(error.response?.data?.error || "Gagal menambahkan user ❌")
-                alert("Gagal menambahkan user!")
+                });
+                localStorage.removeItem('addUser');
+
+            } catch (err: unknown) {
+                // cast ke AxiosError dengan tipe data { error: string }
+                const axiosErr = err as AxiosError<{ error: string }>;
+
+                console.error(axiosErr);
+                setMessage(axiosErr.response?.data?.error || "Gagal menambahkan user ❌");
+                alert("Gagal menambahkan user!");
             } finally {
-                setLoading(false)
+                setLoading(false);
             }
+
         }
     }
 
@@ -130,10 +139,10 @@ const AddUser = ({ }) => {
                 onClick={() => {
                     setAddUser(true);
                 }}
-                className='text-sm font-semibold bg-primary text-white px-2 py-1 rounded-md border-b-3 border-white hover:bg-third hover:border-b-primary transition-hover ease-in-out duration-200 cursor-pointer'>Add User</button>
+                className='w-1/10 text-sm font-semibold bg-primary text-white px-2 py-1 rounded-md border-b-3 border-white hover:bg-third hover:border-b-primary transition-hover ease-in-out duration-200 cursor-pointer'>Add User</button>
             {/* add user menu */}
             {addUser &&
-                <div className='w-screen h-screen absolute-center overflow-hidden bg-white/`0 backdrop-blur-md transition-all ease-in-out duration-500'>
+                <div className='w-full h-screen absolute-center overflow-hidden bg-white/`0 backdrop-blur-md transition-all ease-in-out duration-500'>
                     <div className=' bg-white border absolute-center border-slate-300 border-b-3 border-b-third rounded-md shadow-md w-2/3 lg:w-1/3 '>
                         {/* close button */}
                         <div

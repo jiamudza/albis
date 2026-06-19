@@ -1,6 +1,5 @@
 "use client"
-import React, { useState } from 'react'
-import { darkColor } from '@/utils/darkColor'
+import React from 'react'
 
 const eventList = [
     {
@@ -20,8 +19,6 @@ const eventList = [
         end: new Date(2025, 9, 20)
     },
 ]
-
-const darkColorRandom = darkColor()
 
 const sortedEvent = eventList.sort((a, b) => a.id - b.id)
 

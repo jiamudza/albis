@@ -9,6 +9,9 @@ import { TbListDetails } from 'react-icons/tb'
 import { MdOutlineDelete } from 'react-icons/md'
 import { VscSettings } from 'react-icons/vsc'
 import NewStudentDetail from './newStudentDetail'
+import axios from 'axios'
+import { RiRefreshLine } from 'react-icons/ri'
+import { IoDownload } from 'react-icons/io5'
 
 type DataCount = {
   page: number
@@ -21,9 +24,9 @@ type DataCount = {
 }
 
 const columns = [
-  { key: 'calon_siswa', label: 'Nama', className: 'py-2 px-4 w-1/3 md:w-2/8' },
+  { key: 'calon_siswa', label: 'Nama', className: 'py-2 px-4 w-1/4 md:w-2/8' },
   { key: 'masa_pendaftaran', label: 'Fase', className: 'hidden md:table-cell w-1/8 text-center' },
-  { key: 'pilihan_program', label: 'Program', className: 'w-1/3 md:w-1/7 text-center' },
+  { key: 'pilihan_program', label: 'Program', className: 'w-2/3 md:w-1/7 text-center' },
   { key: 'asal_sekolah', label: 'Asal Sekolah', className: 'hidden md:table-cell w-1/8' },
   { key: 'pembayaran', label: 'Pembayaran', className: 'hidden md:table-cell w-1/8 text-center' },
   { key: 'metode_pembayaran', label: 'Metode', className: 'hidden text-center md:table-cell w-1/8' },
@@ -36,12 +39,14 @@ const NewStudentsTable = ({
   filter,
   loading,
   onPageChange, // ✅ tambahkan prop
+  refresh
 }: {
   data: any[]
   pageData: DataCount
   filter: (value: string) => void
   loading: boolean
   onPageChange: (page: number) => void
+  refresh: () => void
 }) => {
   const [id, setId] = useState<string>('')
   const [detail, setDetail] = useState(false)
@@ -51,8 +56,25 @@ const NewStudentsTable = ({
     setId(id)
     setDetail(true)
   }
+  const [rotate, setRotate] = useState(false);
 
-  console.log(data)
+  const api = axios.create({
+    baseURL: "/api",
+    withCredentials: true, //
+  });
+
+  const deleteStudent = async (id: string) => {
+    try {
+      const response = await api.delete(`/newStudents/${id}`);
+      console.log(response.data.message);
+      alert("Data berhasil dihapus!");
+    } catch (error: any) {
+      console.error("Gagal menghapus data:", error.response?.data || error.message);
+      alert("Terjadi kesalahan saat menghapus data.");
+    }
+  };
+
+  
 
   const renderNewStudent = (item: newStudent) => (
     <tr
@@ -72,7 +94,7 @@ const NewStudentsTable = ({
           className="rounded-full object-cover"
         />
         <div className="flex flex-col min-w-0">
-          <span className="font-semibold whitespace-nowrap truncate">{item.nama_lengkap}</span>
+          <span className="font-semibold w-22 md:w-full whitespace-nowrap truncate">{item.nama_lengkap}</span>
           <span className="hidden md:block text-[10px] whitespace-nowrap truncate">
             {item.email === '' ? '-' : item.email}
           </span>
@@ -80,13 +102,13 @@ const NewStudentsTable = ({
       </td>
 
       <td className="hidden md:table-cell text-center">{item.fase || '-'}</td>
-      <td className="text-center">{item.pilihan_program || '-'}</td>
+      <td className="text-center px-5">{item.pilihan_program || '-'}</td>
       <td className="hidden md:table-cell truncate">{item.asal_sekolah || '-'}</td>
       <td className="hidden md:table-cell text-center">{item.status_pembayaran || '-'}</td>
       <td className="hidden md:table-cell text-center">{item.metode_bayar || '-'}</td>
 
       <td className="">
-        <div className="flex items-center justify-center gap-3">
+        <div className="flex items-center justify-start md:justify-center gap-1 md:gap-3 px-2 lg:px-1">
           <abbr
             title="Detail"
             className="bg-accent rounded-full hover:bg-primary cursor-pointer"
@@ -95,7 +117,7 @@ const NewStudentsTable = ({
             <TbListDetails size={22} className="p-1 rounded-full text-white" />
           </abbr>
           {role === 'admin' && (
-            <abbr title="Hapus" className="cursor-pointer bg-red-300 rounded-full hover:bg-red-400">
+            <abbr onClick={() => deleteStudent(item.id)} title="Hapus" className="cursor-pointer bg-red-300 rounded-full hover:bg-red-400">
               <MdOutlineDelete size={22} className="p-1 rounded-full text-white" />
             </abbr>
           )}
@@ -124,6 +146,16 @@ const NewStudentsTable = ({
           <div className="flex justify-end items-center gap-3 py-3 px-2 md:px-5">
             <span className="flex items-center justify-center md:justify-end gap-2 bg-primary font-bold py-2 px-2 rounded-full md:rounded-md text-white cursor-pointer">
               <VscSettings />
+            </span>
+            <div onClick={() => {
+              refresh()
+              setRotate(!rotate)
+            }} className={`text-xs font-semibold text-right text-primary cursor-pointer  hover:bg-white hover:border-primary p-2 rounded-md transition-all ease-in-out duration-1000 ${rotate ? "rotate-1000" : "rotate-0"}`}><RiRefreshLine size={15} className={``} /></div>
+            <span className="flex items-center justify-center md:justify-end gap-2 bg-primary font-bold py-2 px-2 rounded-full md:rounded-md text-white cursor-pointer">
+              <div className='flex justify-center gap-2 items-center'>
+                <IoDownload />
+                <p className='text-xs'>Download Rapor</p>
+              </div>
             </span>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarRadiusAxis } from 'recharts';
+import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import { IoMan, IoWoman } from "react-icons/io5";
 import { useRouter } from 'next/navigation';
 

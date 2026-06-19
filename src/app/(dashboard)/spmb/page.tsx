@@ -1,6 +1,6 @@
 import React from 'react'
-import { useNewStudent } from '@/lib/dataFetch'
-import NewStudentsTable from '@/components/newStudentTable'
+// import { useNewStudent } from '@/lib/dataFetch'
+// import NewStudentsTable from '@/components/newStudentTable'
 import SpmbWrapper from '@/components/spmb/spmbWrapper'
 
 const tab = [
@@ -28,7 +28,7 @@ const tab = [
 
 const SPMB = async () => {
     return (
-        <div className='p-3'>
+        <div className='px-3 py-2'>
             <SpmbWrapper />
         </div>
     )

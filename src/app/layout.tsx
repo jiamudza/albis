@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Rubik, Poppins } from "next/font/google";
-// @ts-ignore: allow side-effect CSS import without module declarations
+// import type { Metadata } from "next";
+import { Rubik, Poppins } from "next/font/google";
+// @ts-ignore: side-effect CSS import declaration not found
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 
-const rubik = Rubik({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-rubik"
-})
+// const rubik = Rubik({
+//   subsets: ["latin"],
+//   weight: ["300", "400", "500", "600", "700", "800"],
+//   variable: "--font-rubik"
+// })
 
 const poppins = Poppins({
   subsets: ["latin"],
