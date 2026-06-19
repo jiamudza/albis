@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Rubik, Poppins } from "next/font/google";
+// @ts-ignore: allow side-effect CSS import without module declarations
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 
