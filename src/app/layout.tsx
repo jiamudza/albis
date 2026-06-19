@@ -1,5 +1,6 @@
 // import type { Metadata } from "next";
 import { Rubik, Poppins } from "next/font/google";
+// @ts-ignore: side-effect CSS import declaration not found
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 

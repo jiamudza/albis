@@ -67,7 +67,7 @@ const LoginForm = () => {
 
     try {
       const { data } = await axios.post(
-        'http://localhost:5000/api/login',
+        '/api/login',
         loginData,
         { withCredentials: true }
       );
@@ -75,7 +75,7 @@ const LoginForm = () => {
       setUser(data.user);
 
       const callbackUrl =
-        searchParams.get('callbackUrl') || '/';
+        searchParams.get('callbackUrl') || '/spmb';
 
       router.push(callbackUrl);
 

@@ -37,7 +37,7 @@ const Albis = () => {
             className='absolute-center top-110 mx-auto bg-primary text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-primary-dark transition duration-300'>Login</button>
         </div> */}
         <div className="flex justify-center items-center">
-          <Link href="/administrasi" className='flex justify-center items-center bg-primary text-white px-4 py-1 rounded-lg text-md font-semibold hover:bg-primary-dark transition duration-300'>Mulai</Link>
+          <Link href="/administration" className='flex justify-center items-center bg-primary text-white px-4 py-1 rounded-lg text-md font-semibold hover:bg-primary-dark transition duration-300'>Mulai</Link>
         </div>
       </div>
     </div>

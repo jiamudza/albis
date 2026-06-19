@@ -22,7 +22,7 @@ if (user) {
     callbackUrl !== '/login' &&
     !callbackUrl.startsWith('/login?')
       ? callbackUrl
-      : '/spmb';
+      : '/administration';
 
   redirect(destination);
 }
