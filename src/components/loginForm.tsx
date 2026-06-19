@@ -2,58 +2,90 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import logo from '../../public/logo.png';
-import { useRouter } from 'next/navigation';
-import axios, { AxiosError } from 'axios';
+import { useRouter, useSearchParams } from 'next/navigation';
+import axios from 'axios';
 import { useAuth } from '@/context/AuthContext';
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 
 interface LoginData {
   username: string;
   password: string;
 }
 
+const initialErrors = {
+  username: '',
+  password: '',
+  general: '',
+};
+
 const LoginForm = () => {
   const { setUser } = useAuth();
   const router = useRouter();
-  const [loginData, setLoginData] = useState<LoginData>({ username: '', password: '' });
-  const [errors, setErrors] = useState({ username: '', password: '', general: '' });
+  const searchParams = useSearchParams();
+
+  const [loginData, setLoginData] = useState<LoginData>({
+    username: '',
+    password: '',
+  });
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [errors, setErrors] = useState(initialErrors);
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setLoginData(prev => ({ ...prev, [name]: value }));
-    setErrors(prev => ({ ...prev, [name]: '', general: '' }));
+  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = target;
+
+    setLoginData(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors(prev => ({
+      ...prev,
+      [name]: '',
+      general: '',
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const newErrors = { username: '', password: '', general: '' };
-    let isValid = true;
-    if (!loginData.username.trim()) { newErrors.username = 'Username wajib diisi'; isValid = false; }
-    if (!loginData.password.trim()) { newErrors.password = 'Password wajib diisi'; isValid = false; }
-    setErrors(newErrors);
-    if (!isValid) return;
+    const { username, password } = loginData;
+
+    const validationErrors = {
+      username: username.trim() ? '' : 'Username wajib diisi',
+      password: password.trim() ? '' : 'Password wajib diisi',
+      general: '',
+    };
+
+    if (validationErrors.username || validationErrors.password) {
+      setErrors(validationErrors);
+      return;
+    }
 
     setLoading(true);
+
     try {
-      const res = await axios.post(
-        '/api/login',
+      const { data } = await axios.post(
+        'http://localhost:5000/api/login',
         loginData,
         { withCredentials: true }
       );
 
-      setUser(res.data.user);
-      window.location.href = "/spmb"
+      setUser(data.user);
+
+      const callbackUrl =
+        searchParams.get('callbackUrl') || '/';
+
+      router.push(callbackUrl);
 
     } catch (err: any) {
-
       setErrors(prev => ({
         ...prev,
-        general: err.response?.data?.error || 'Login gagal'
+        general: err.response?.data?.error || 'Login gagal',
       }));
 
-      // optional: log error lengkap
-      console.error(err.response?.data);
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -82,14 +114,30 @@ const LoginForm = () => {
 
         <div className='flex flex-col mt-5'>
           <label className='text-xs font-semibold'>Password</label>
-          <input
-            name='password'
-            value={loginData.password}
-            onChange={handleChange}
-            type='password'
-            className='w-full px-4 py-1 rounded-full bg-white/30 text-sm input-login focus:outline-none focus:ring-0 focus:border-none mt-1'
-          />
-          {errors.password && <p className='text-red-500 text-[10px] mt-1'>{errors.password}</p>}
+
+          <div className='relative mt-1'>
+            <input
+              name='password'
+              value={loginData.password}
+              onChange={handleChange}
+              type={showPassword ? 'text' : 'password'}
+              className='w-full px-4 py-1 pr-12 rounded-full bg-white/30 text-sm input-login focus:outline-none focus:ring-0 focus:border-none'
+            />
+
+            <button
+              type='button'
+              onClick={() => setShowPassword(prev => !prev)}
+              className='absolute right-4 top-1/2 -translate-y-1/2 text-xs text-white/80 hover:text-white cursor-pointer'
+            >
+              {showPassword ? <FiEyeOff /> : <FiEye />}
+            </button>
+          </div>
+
+          {errors.password && (
+            <p className='text-red-500 text-[10px] mt-1'>
+              {errors.password}
+            </p>
+          )}
         </div>
 
         <div className='mt-6 text-sm font-bold text-center'>
