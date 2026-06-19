@@ -47,7 +47,7 @@ const Tatib = () => {
                     setSelectedFile(item.file);
                     setPopup(true);
                 }}
-                 key={index} className={`flex flex-col justify-center items-center gap-2 w-[23%] h-50 ${item.style} shadow-xl rounded-lg p-3 cursor-pointer relative hover:scale-105 transition-transform duration-300`}>
+                 key={index} className={`flex flex-col justify-center items-center gap-2 sm:w-full md:w-2/5 lg:w-[23%] h-50 ${item.style} shadow-xl rounded-lg p-3 cursor-pointer relative hover:scale-105 transition-transform duration-300`}>
                     <span className="text-2xl absolute top-3 left-3">{item.reacticon}</span>
                     <h2 className='text-lg font-semibold'>{item.title}</h2> 
                     <p className='text-sm text-slate-600'>{item.description}</p>

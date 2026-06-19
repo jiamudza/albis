@@ -90,7 +90,7 @@ const SOP = () => {
             setPopup(true);
             setUrl(sop.file)
           }}
-          key={sop.id} className={`mb-4 p-4 rounded-lg w-3/13 h-60  overflow-hidden ${sop.style} shadow-2xl hover:scale-105 transition-transform cursor-pointer duration-300`}>
+          key={sop.id} className={`mb-4 p-4 rounded-lg sm:w-full md:w-2/5 lg:w-3/13 md:h-60  overflow-hidden ${sop.style} shadow-2xl hover:scale-105 transition-transform cursor-pointer duration-300`}>
             {/* flex reacticon and title */}
             <div className="flex items-start gap-2 mb-2">
               <h2 className="text-lg font-semibold">{sop.title}</h2>

@@ -46,17 +46,17 @@ const Perangkat = () => {
             {/* upload perangkat ke Google Drive */}
             <a href="https://drive.google.com/drive/folders/1jvfuHPwaRbiqBXuo175r9Ms-YI42bKtC?usp=drive_link" target='_blank' className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center gap-10 hover:scale-105 transition-all duration-300">
                 <div>
-                    <h2 className="text-lg font-semibold mb-2">Upload Perangkat Pembelajaran</h2>
-                    <p className="text-sm text-gray-600 mb-4">Silakan upload perangkat pembelajaran ke Google Drive...</p>
+                    <h2 className="text-lg  font-semibold mb-2">Upload Perangkat Pembelajaran</h2>
+                    <p className="text-sm hidden md:block  text-gray-600 mb-4">Silakan upload perangkat pembelajaran ke Google Drive...</p>
                 </div>
                 <span><FaCloudUploadAlt size={70} /></span>
             </a>
 
             {/* Perangkat Pembelajaran */}
             <h2 className='text-center font-semibold'>Perangkat Pembelajaran</h2>
-            <div className="flex gap-5 justify-start items-center">
+            <div className="flex gap-5 justify-start items-center overflow-x-auto">
                 {perangkatPembelajaran.map((item, index) => (
-                    <a key={index} href={item.file} download={item.file} rel="noopener noreferrer" className={`text-grey-800 mt-2 inline-block p-4 rounded-lg transition-all duration-300 ${item.style}`}>
+                    <a key={index} href={item.file} download={item.file} rel="noopener noreferrer" className={`text-grey-800 mt-2 inline-block p-4 rounded-lg transition-all duration-300 w-full ${item.style}`}>
                         <h3 className="text-lg font-semibold">{item.name}</h3>
                         <p className="text-sm text-gray-600">{item.description}</p>
                     </a>
@@ -66,7 +66,7 @@ const Perangkat = () => {
 
             {/* administrasi kegiatan */}
             <h2 className="mt-8 text-center font-semibold">Administrasi Kegiatan</h2>
-            <div className="flex gap-5 items-center">
+            <div className="flex gap-5 items-center  overflow-x-auto">
                 {administrasiKegiatan.map((item, index) => (
                         <a key={index} href={item.file} download={item.file} rel="noopener noreferrer" className={`text-grey-800 mt-2 inline-block p-4 transition-all duration-300 ${item.style}`}>
                             <h3 className="text-lg font-semibold">{item.name}</h3>
