@@ -13,7 +13,7 @@ import {
 } from "react-icons/ri";
 import { HiUser, HiUserGroup } from "react-icons/hi2";
 import { BsFillGearFill } from "react-icons/bs";
-import { FaMoneyBill, FaPeopleRoof } from "react-icons/fa6";
+import { FaMoneyBill, FaFolderOpen } from "react-icons/fa6";
 import { MdInventory, MdMeetingRoom, MdAssignment } from "react-icons/md";
 import { IoIosMegaphone } from "react-icons/io";
 import { GiSpellBook } from "react-icons/gi";
@@ -29,7 +29,7 @@ const menuItems = [
       { icon: <RiHome5Fill />, label: "Dashboard", href: "/admin" },
       { icon: <HiUser />, label: "Guru", href: "/list/teachers" },
       { icon: <HiUserGroup />, label: "Siswa", href: "/list/students" },
-      { icon: <FaPeopleRoof />, label: "Wali", href: "/list/parents" },
+      { icon: <FaFolderOpen />, label: "Administrasi", href: "/administration" },
       { icon: <MdMeetingRoom />, label: "Kelas", href: "/classes" },
       { icon: <MdAssignment />, label: "SPMB", href: "/spmb" },
       { icon: <RiFileList2Fill />, label: "Kehadiran", href: "/absensi" },
@@ -45,7 +45,7 @@ const menuItems = [
     title: "OTHER",
     items: [
       { icon: <BsFillGearFill />, label: "Pengaturan", href: "/settings" },
-      { icon: <RiLogoutBoxFill />, label: "Logout", href: "/logout" }, // nanti kita ganti logic
+      { icon: <RiLogoutBoxFill />, label: "Logout", href: "/login" }, // nanti kita ganti logic
     ],
   },
 ];

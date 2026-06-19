@@ -11,6 +11,7 @@ import { VscSettings } from 'react-icons/vsc'
 import NewStudentDetail from './newStudentDetail'
 import axios from 'axios'
 import { RiRefreshLine } from 'react-icons/ri'
+import { IoDownload } from 'react-icons/io5'
 
 type DataCount = {
   page: number
@@ -72,6 +73,8 @@ const NewStudentsTable = ({
       alert("Terjadi kesalahan saat menghapus data.");
     }
   };
+
+  
 
   const renderNewStudent = (item: newStudent) => (
     <tr
@@ -148,6 +151,12 @@ const NewStudentsTable = ({
               refresh()
               setRotate(!rotate)
             }} className={`text-xs font-semibold text-right text-primary cursor-pointer  hover:bg-white hover:border-primary p-2 rounded-md transition-all ease-in-out duration-1000 ${rotate ? "rotate-1000" : "rotate-0"}`}><RiRefreshLine size={15} className={``} /></div>
+            <span className="flex items-center justify-center md:justify-end gap-2 bg-primary font-bold py-2 px-2 rounded-full md:rounded-md text-white cursor-pointer">
+              <div className='flex justify-center gap-2 items-center'>
+                <IoDownload />
+                <p className='text-xs'>Download Rapor</p>
+              </div>
+            </span>
           </div>
         </div>
 
