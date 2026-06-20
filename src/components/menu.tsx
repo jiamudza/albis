@@ -51,7 +51,7 @@ const menuItems = [
 ];
 
 const hiddenItemsByRole: Record<string, string[]> = {
-  Guru: ["Keuangan", "Inventaris", "Master"],
+  Guru: ["Keuangan", "Inventaris", "Master", "SPMB"],
   Siswa: ["Guru", "Keuangan", "Inventaris", "Wali", "SPMB", "Master"],
   Wali: ["Siswa", "Keuangan", "Inventaris", "SPMB", "Master"],
   SPMB: ["Keuangan", "Inventaris", "Master"]

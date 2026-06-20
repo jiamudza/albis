@@ -77,7 +77,7 @@ const LoginForm = () => {
       const callbackUrl =
         searchParams.get('callbackUrl') || '/administration';
 
-      router.push(callbackUrl);
+      router.push('/administration');
 
     } catch (err: any) {
       setErrors(prev => ({
