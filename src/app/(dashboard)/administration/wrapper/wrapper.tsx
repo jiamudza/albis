@@ -3,6 +3,7 @@ import React from 'react'
 import SOP from './contents/SOP'
 import Tatib from './contents/Tatib'
 import Perangkat from './contents/Perangkat'
+import { IoIosLogOut } from 'react-icons/io'
 
 const Wrapper = () => {
     const [tabActive, setTabActive] = React.useState("sop")
@@ -28,7 +29,7 @@ const Wrapper = () => {
     ]
     return (
         <div className="p-3">
-            <div className="flex cursor-pointer">
+            <div className="flex cursor-pointer relative">
                 {tab.map((item) => (
                     <div className="flex gap-2"
                     key={item.key}>
@@ -43,8 +44,14 @@ const Wrapper = () => {
                     </div>
 
                 ))}
+                <a href='https://akreditasi-smpitalbanna-2026.netlify.app/' target='_blank'
+                className='bg-primary px-3 py-1 text-white cursor-pointer hover:bg-primary/80 absolute right-0 rounded-tl-lg rounded-tr-lg flex items-center justify-center gap-3'
+                >
+                    <p>Akreditasi</p>
+                    <IoIosLogOut />
+                </a>
             </div>
-            <div className="w-full bg-white border-1 shadow-2xl border-gray-300 rounded-lg rounded-tl-none overflow-hidden">
+            <div className="w-full bg-white border-1 shadow-2xl border-gray-300 rounded-lg rounded-tl-none rounded-tr-none overflow-hidden">
                 {tab.find((item) => item.key === tabActive)?.content}
             </div>
         </div>
